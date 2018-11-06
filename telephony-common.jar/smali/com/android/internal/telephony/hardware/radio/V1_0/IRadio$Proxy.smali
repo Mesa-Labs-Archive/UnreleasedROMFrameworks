@@ -1,0 +1,9815 @@
+.class public final Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;
+.super Ljava/lang/Object;
+.source "IRadio.java"
+
+# interfaces
+.implements Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "Proxy"
+.end annotation
+
+
+# instance fields
+.field private mRemote:Landroid/os/IHwBinder;
+
+
+# direct methods
+.method public constructor <init>(Landroid/os/IHwBinder;)V
+    .locals 1
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/os/IHwBinder;
+
+    iput-object v0, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public acceptCall(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x27
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public acknowledgeIncomingGsmSmsWithPdu(IZLjava/lang/String;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeBool(Z)V
+
+    invoke-virtual {v1, p3}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x61
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public acknowledgeLastIncomingCdmaSms(ILandroid/hardware/radio/V1_0/CdmaSmsAck;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {p2, v1}, Landroid/hardware/radio/V1_0/CdmaSmsAck;->writeToParcel(Landroid/os/HwParcel;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x4f
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public acknowledgeLastIncomingGsmSms(IZI)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeBool(Z)V
+
+    invoke-virtual {v1, p3}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x26
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public asBinder()Landroid/os/IHwBinder;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    return-object v0
+.end method
+
+.method public cancelPendingUssd(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x1f
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public changeIccPin2ForApp(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p3}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p4}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x8
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public changeIccPinForApp(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p3}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p4}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/4 v3, 0x7
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public conference(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x11
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public deactivateDataCall(IIZ)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p3}, Landroid/os/HwParcel;->writeBool(Z)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x28
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public deleteSmsOnRuim(II)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x58
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public deleteSmsOnSim(II)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x3a
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public dial(ILandroid/hardware/radio/V1_0/Dial;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {p2, v1}, Landroid/hardware/radio/V1_0/Dial;->writeToParcel(Landroid/os/HwParcel;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0xb
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public exitEmergencyCallbackMode(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x5a
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public explicitCallTransfer(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x40
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public getAllowedCarriers(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x7e
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public getAvailableBandModes(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x3c
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public getAvailableNetworks(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x2f
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public getBasebandVersion(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x32
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public getCDMASubscription(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x56
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public getCallForwardStatus(ILandroid/hardware/radio/V1_0/CallForwardInfo;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {p2, v1}, Landroid/hardware/radio/V1_0/CallForwardInfo;->writeToParcel(Landroid/os/HwParcel;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x22
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public getCallWaiting(II)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x24
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public getCdmaBroadcastConfig(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x53
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public getCdmaRoamingPreference(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x47
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public getCdmaSubscriptionSource(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x5f
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public getCellInfoList(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x64
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public getClip(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x36
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public getClir(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x20
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public getCurrentCalls(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0xa
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public getDataCallList(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x37
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public getDataRegistrationState(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x16
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public getDebugInfo()Landroid/hidl/base/V1_0/DebugInfo;
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v2, Landroid/os/HwParcel;
+
+    invoke-direct {v2}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v3, "android.hidl.base@1.0::IBase"
+
+    invoke-virtual {v2, v3}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v3, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const v4, 0xf524546
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v2, v1, v5}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->verifySuccess()V
+
+    invoke-virtual {v2}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+
+    new-instance v0, Landroid/hidl/base/V1_0/DebugInfo;
+
+    invoke-direct {v0}, Landroid/hidl/base/V1_0/DebugInfo;-><init>()V
+
+    invoke-virtual {v0, v1}, Landroid/hidl/base/V1_0/DebugInfo;->readFromParcel(Landroid/os/HwParcel;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
+
+    return-object v0
+
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
+
+    throw v3
+.end method
+
+.method public getDeviceIdentity(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x59
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public getFacilityLockForApp(ILjava/lang/String;Ljava/lang/String;ILjava/lang/String;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p3}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p4}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p5}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x29
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public getGsmBroadcastConfig(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x50
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public getHardwareConfig(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x73
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public getHashChain()Ljava/util/ArrayList;
+    .locals 20
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/ArrayList",
+            "<[B>;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v16, Landroid/os/HwParcel;
+
+    invoke-direct/range {v16 .. v16}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v4, "android.hidl.base@1.0::IBase"
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v0, v4}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    new-instance v3, Landroid/os/HwParcel;
+
+    invoke-direct {v3}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const v5, 0xf485348
+
+    const/4 v6, 0x0
+
+    move-object/from16 v0, v16
+
+    invoke-interface {v4, v5, v0, v3, v6}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v3}, Landroid/os/HwParcel;->verifySuccess()V
+
+    invoke-virtual/range {v16 .. v16}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+
+    new-instance v15, Ljava/util/ArrayList;
+
+    invoke-direct {v15}, Ljava/util/ArrayList;-><init>()V
+
+    const-wide/16 v4, 0x10
+
+    invoke-virtual {v3, v4, v5}, Landroid/os/HwParcel;->readBuffer(J)Landroid/os/HwBlob;
+
+    move-result-object v2
+
+    const-wide/16 v4, 0x8
+
+    invoke-virtual {v2, v4, v5}, Landroid/os/HwBlob;->getInt32(J)I
+
+    move-result v18
+
+    mul-int/lit8 v4, v18, 0x20
+
+    int-to-long v4, v4
+
+    invoke-virtual {v2}, Landroid/os/HwBlob;->handle()J
+
+    move-result-wide v6
+
+    const-wide/16 v8, 0x0
+
+    const/4 v10, 0x1
+
+    invoke-virtual/range {v3 .. v10}, Landroid/os/HwParcel;->readEmbeddedBuffer(JJJZ)Landroid/os/HwBlob;
+
+    move-result-object v19
+
+    invoke-virtual {v15}, Ljava/util/ArrayList;->clear()V
+
+    const/4 v11, 0x0
+
+    :goto_0
+    move/from16 v0, v18
+
+    if-ge v11, v0, :cond_1
+
+    const/16 v4, 0x20
+
+    new-array v0, v4, [B
+
+    move-object/from16 v17, v0
+
+    mul-int/lit8 v4, v11, 0x20
+
+    int-to-long v12, v4
+
+    const/4 v14, 0x0
+
+    :goto_1
+    const/16 v4, 0x20
+
+    if-ge v14, v4, :cond_0
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v12, v13}, Landroid/os/HwBlob;->getInt8(J)B
+
+    move-result v4
+
+    aput-byte v4, v17, v14
+
+    const-wide/16 v4, 0x1
+
+    add-long/2addr v12, v4
+
+    add-int/lit8 v14, v14, 0x1
+
+    goto :goto_1
+
+    :cond_0
+    move-object/from16 v0, v17
+
+    invoke-virtual {v15, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    add-int/lit8 v11, v11, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    invoke-virtual {v3}, Landroid/os/HwParcel;->release()V
+
+    return-object v15
+
+    :catchall_0
+    move-exception v4
+
+    invoke-virtual {v3}, Landroid/os/HwParcel;->release()V
+
+    throw v4
+.end method
+
+.method public getIccCardStatus(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/4 v3, 0x2
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public getImsRegistrationState(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x67
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public getImsiForApp(ILjava/lang/String;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0xc
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public getLastCallFailCause(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x13
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public getModemActivityInfo(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x7c
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public getMute(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x35
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public getNeighboringCids(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x43
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public getNetworkSelectionMode(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x2c
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public getOperator(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x17
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public getPreferredNetworkType(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x42
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public getPreferredVoicePrivacy(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x4b
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public getRadioCapability(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x77
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public getSignalStrength(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x14
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public getSmscAddress(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x5b
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public getTTYMode(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x49
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public getVoiceRadioTechnology(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x63
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public getVoiceRegistrationState(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x15
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public handleStkCallSetupRequestFromSim(IZ)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeBool(Z)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x3f
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public hangup(II)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0xd
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public hangupForegroundResumeBackground(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0xf
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public hangupWaitingOrBackground(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0xe
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public iccCloseLogicalChannel(II)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x6b
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public iccIOForApp(ILandroid/hardware/radio/V1_0/IccIo;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {p2, v1}, Landroid/hardware/radio/V1_0/IccIo;->writeToParcel(Landroid/os/HwParcel;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x1d
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public iccOpenLogicalChannel(ILjava/lang/String;I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p3}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x6a
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public iccTransmitApduBasicChannel(ILandroid/hardware/radio/V1_0/SimApdu;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {p2, v1}, Landroid/hardware/radio/V1_0/SimApdu;->writeToParcel(Landroid/os/HwParcel;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x69
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public iccTransmitApduLogicalChannel(ILandroid/hardware/radio/V1_0/SimApdu;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {p2, v1}, Landroid/hardware/radio/V1_0/SimApdu;->writeToParcel(Landroid/os/HwParcel;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x6c
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public interfaceChain()Ljava/util/ArrayList;
+    .locals 6
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/ArrayList",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v2, Landroid/os/HwParcel;
+
+    invoke-direct {v2}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v3, "android.hidl.base@1.0::IBase"
+
+    invoke-virtual {v2, v3}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v3, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const v4, 0xf43484e
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v2, v1, v5}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->verifySuccess()V
+
+    invoke-virtual {v2}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->readStringVector()Ljava/util/ArrayList;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-object v0
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
+
+    return-object v0
+
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
+
+    throw v3
+.end method
+
+.method public interfaceDescriptor()Ljava/lang/String;
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v2, Landroid/os/HwParcel;
+
+    invoke-direct {v2}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v3, "android.hidl.base@1.0::IBase"
+
+    invoke-virtual {v2, v3}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v3, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const v4, 0xf445343
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v2, v1, v5}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->verifySuccess()V
+
+    invoke-virtual {v2}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->readString()Ljava/lang/String;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-object v0
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
+
+    return-object v0
+
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->release()V
+
+    throw v3
+.end method
+
+.method public linkToDeath(Landroid/os/IHwBinder$DeathRecipient;J)Z
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    invoke-interface {v0, p1, p2, p3}, Landroid/os/IHwBinder;->linkToDeath(Landroid/os/IHwBinder$DeathRecipient;J)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public notifySyspropsChanged()V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hidl.base@1.0::IBase"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const v3, 0xf535953
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public nvReadItem(II)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x6d
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public nvResetConfig(II)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x70
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public nvWriteCdmaPrl(ILjava/util/ArrayList;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I",
+            "Ljava/util/ArrayList",
+            "<",
+            "Ljava/lang/Byte;",
+            ">;)V"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeInt8Vector(Ljava/util/ArrayList;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x6f
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public nvWriteItem(ILandroid/hardware/radio/V1_0/NvWriteItem;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {p2, v1}, Landroid/hardware/radio/V1_0/NvWriteItem;->writeToParcel(Landroid/os/HwParcel;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x6e
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public oemAccessPhoneBookEntry(IIIILcom/android/internal/telephony/hardware/radio/V1_0/OemAdnRecord;Ljava/lang/String;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p3}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p4}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {p5, v1}, Lcom/android/internal/telephony/hardware/radio/V1_0/OemAdnRecord;->writeToParcel(Landroid/os/HwParcel;)V
+
+    invoke-virtual {v1, p6}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0xb0
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public oemAcknowledgeRilConnected(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0xa6
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public oemCallDeflection(ILjava/lang/String;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x95
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public oemCancelTransferCall(II)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0xa5
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public oemChangeIccPerso(ILjava/lang/String;Ljava/lang/String;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p3}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0xad
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public oemDialEmergencyCall(ILcom/android/internal/telephony/hardware/radio/V1_0/SecDial;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {p2, v1}, Lcom/android/internal/telephony/hardware/radio/V1_0/SecDial;->writeToParcel(Landroid/os/HwParcel;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x94
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public oemEmergencyControl(II)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0xb3
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public oemEmergencySearch(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0xb2
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public oemEnableUnsolResponse(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0xa4
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public oemGetAcbInfo(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x9c
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public oemGetAtr(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0xb4
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public oemGetCellBroadcastConfig(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0xb1
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public oemGetDisable2g(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x9e
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public oemGetICBarring(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p3}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p4}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p5}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0xa0
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public oemGetPhoneBookEntry(III)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p3}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0xaf
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public oemGetPhoneBookStorageInfo(II)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0xa7
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public oemGetPreferredNetworkList(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x98
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public oemGetSimLockInfo(III)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p3}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0xab
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public oemGetUsimPBCapa(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0xa8
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public oemHoldCall(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x9b
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public oemModifyCallInitiate(ILcom/android/internal/telephony/hardware/radio/V1_0/OemCallModify;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {p2, v1}, Lcom/android/internal/telephony/hardware/radio/V1_0/OemCallModify;->writeToParcel(Landroid/os/HwParcel;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x96
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public oemQueryCnap(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0xa2
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public oemQueryCsgList(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0xba
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public oemRefreshNitzTime(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0xa3
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public oemSelectCsgManual(ILcom/android/internal/telephony/hardware/radio/V1_0/OemCsgInfo;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {p2, v1}, Lcom/android/internal/telephony/hardware/radio/V1_0/OemCsgInfo;->writeToParcel(Landroid/os/HwParcel;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0xbb
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public oemSendCdmaSmsExpectMore(ILandroid/hardware/radio/V1_0/CdmaSmsMessage;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {p2, v1}, Landroid/hardware/radio/V1_0/CdmaSmsMessage;->writeToParcel(Landroid/os/HwParcel;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0xae
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public oemSendEncodedUSSD(ILcom/android/internal/telephony/hardware/radio/V1_0/OemEncodedUSSD;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {p2, v1}, Lcom/android/internal/telephony/hardware/radio/V1_0/OemEncodedUSSD;->writeToParcel(Landroid/os/HwParcel;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x9a
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public oemSetDisable2g(II)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x9f
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public oemSetICBarring(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p3}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p4}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p5}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p6}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0xa1
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public oemSetImsCallList(ILjava/util/ArrayList;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I",
+            "Ljava/util/ArrayList",
+            "<",
+            "Lcom/android/internal/telephony/hardware/radio/V1_0/OemImsCall;",
+            ">;)V"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-static {v1, p2}, Lcom/android/internal/telephony/hardware/radio/V1_0/OemImsCall;->writeVectorToParcel(Landroid/os/HwParcel;Ljava/util/ArrayList;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x97
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public oemSetPreferredNetworkList(ILcom/android/internal/telephony/hardware/radio/V1_0/OemPreferredNetworkInfo;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {p2, v1}, Lcom/android/internal/telephony/hardware/radio/V1_0/OemPreferredNetworkInfo;->writeToParcel(Landroid/os/HwParcel;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x99
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public oemSetSimInitEvent(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0xaa
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public oemSetSimPower(II)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0xa9
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public oemSetTransferCall(ILjava/util/ArrayList;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I",
+            "Ljava/util/ArrayList",
+            "<",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeStringVector(Ljava/util/ArrayList;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x9d
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public oemSupplyIccPerso(ILjava/lang/String;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0xac
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public ping()V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hidl.base@1.0::IBase"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const v3, 0xf504e47
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->verifySuccess()V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public pullLceData(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x7b
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public rejectCall(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x12
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public reportSmsMemoryStatus(IZ)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeBool(Z)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x5d
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public reportStkServiceIsRunning(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x5e
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public requestIccSimAuthentication(IILjava/lang/String;Ljava/lang/String;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p3}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p4}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x74
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public requestIsimAuthentication(ILjava/lang/String;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x60
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public requestShutdown(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x76
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public responseAcknowledgement()V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x82
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public secAcceptCall(II)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x86
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public secDeactivateDataCall(III)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p3}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x93
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public secDial(ILcom/android/internal/telephony/hardware/radio/V1_0/SecDial;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {p2, v1}, Lcom/android/internal/telephony/hardware/radio/V1_0/SecDial;->writeToParcel(Landroid/os/HwParcel;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x87
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public secExplicitCallTransfer(ILjava/lang/String;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x8d
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public secGetAvailableNetworks(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x92
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public secGetCallForwardStatus(ILandroid/hardware/radio/V1_0/CallForwardInfo;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {p2, v1}, Landroid/hardware/radio/V1_0/CallForwardInfo;->writeToParcel(Landroid/os/HwParcel;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x8c
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public secGetCurrentCalls(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x88
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public secGetDataRegistrationState(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x8b
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public secGetIccCardStatus(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x84
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public secGetImsRegistrationState(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x91
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public secGetOperator(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x8e
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public secGetSignalStrength(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x89
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public secGetVoiceRegistrationState(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x8a
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public secSendCdmaSms(ILandroid/hardware/radio/V1_0/CdmaSmsMessage;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {p2, v1}, Landroid/hardware/radio/V1_0/CdmaSmsMessage;->writeToParcel(Landroid/os/HwParcel;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0xb7
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public secSendDeviceState(IIZ)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p3}, Landroid/os/HwParcel;->writeBool(Z)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0xb9
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public secSendImsSms(ILandroid/hardware/radio/V1_0/ImsSmsMessage;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {p2, v1}, Landroid/hardware/radio/V1_0/ImsSmsMessage;->writeToParcel(Landroid/os/HwParcel;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0xb8
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public secSendSMSExpectMore(ILandroid/hardware/radio/V1_0/GsmSmsMessage;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {p2, v1}, Landroid/hardware/radio/V1_0/GsmSmsMessage;->writeToParcel(Landroid/os/HwParcel;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0xb6
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public secSendSms(ILandroid/hardware/radio/V1_0/GsmSmsMessage;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {p2, v1}, Landroid/hardware/radio/V1_0/GsmSmsMessage;->writeToParcel(Landroid/os/HwParcel;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0xb5
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public secSetBarringPassword(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p3}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p4}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p5}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x90
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public secSetCallForward(ILcom/android/internal/telephony/hardware/radio/V1_0/SecCallForwardInfo;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {p2, v1}, Lcom/android/internal/telephony/hardware/radio/V1_0/SecCallForwardInfo;->writeToParcel(Landroid/os/HwParcel;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x8f
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public secSetResponseFunctions(Lcom/android/internal/telephony/hardware/radio/V1_0/ISecRadioResponse;Lcom/android/internal/telephony/hardware/radio/V1_0/ISecRadioIndication;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    const/4 v3, 0x0
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    if-nez p1, :cond_0
+
+    move-object v2, v3
+
+    :goto_0
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeStrongBinder(Landroid/os/IHwBinder;)V
+
+    if-nez p2, :cond_1
+
+    :goto_1
+    invoke-virtual {v1, v3}, Landroid/os/HwParcel;->writeStrongBinder(Landroid/os/IHwBinder;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x83
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->verifySuccess()V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :cond_0
+    invoke-interface {p1}, Lcom/android/internal/telephony/hardware/radio/V1_0/ISecRadioResponse;->asBinder()Landroid/os/IHwBinder;
+
+    move-result-object v2
+
+    goto :goto_0
+
+    :cond_1
+    invoke-interface {p2}, Lcom/android/internal/telephony/hardware/radio/V1_0/ISecRadioIndication;->asBinder()Landroid/os/IHwBinder;
+
+    move-result-object v3
+
+    goto :goto_1
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public secSupplyNetworkDepersonalization(ILjava/lang/String;I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "vendor.samsung.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p3}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x85
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public sendBurstDtmf(ILjava/lang/String;II)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p3}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p4}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x4d
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public sendCDMAFeatureCode(ILjava/lang/String;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x4c
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public sendCdmaSms(ILandroid/hardware/radio/V1_0/CdmaSmsMessage;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {p2, v1}, Landroid/hardware/radio/V1_0/CdmaSmsMessage;->writeToParcel(Landroid/os/HwParcel;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x4e
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public sendDeviceState(IIZ)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p3}, Landroid/os/HwParcel;->writeBool(Z)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x7f
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public sendDtmf(ILjava/lang/String;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x19
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public sendEnvelope(ILjava/lang/String;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x3d
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public sendEnvelopeWithStatus(ILjava/lang/String;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x62
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public sendImsSms(ILandroid/hardware/radio/V1_0/ImsSmsMessage;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {p2, v1}, Landroid/hardware/radio/V1_0/ImsSmsMessage;->writeToParcel(Landroid/os/HwParcel;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x68
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public sendSMSExpectMore(ILandroid/hardware/radio/V1_0/GsmSmsMessage;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {p2, v1}, Landroid/hardware/radio/V1_0/GsmSmsMessage;->writeToParcel(Landroid/os/HwParcel;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x1b
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public sendSms(ILandroid/hardware/radio/V1_0/GsmSmsMessage;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {p2, v1}, Landroid/hardware/radio/V1_0/GsmSmsMessage;->writeToParcel(Landroid/os/HwParcel;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x1a
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public sendTerminalResponseToSim(ILjava/lang/String;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x3e
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public sendUssd(ILjava/lang/String;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x1e
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public separateConnection(II)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x33
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public setAllowedCarriers(IZLandroid/hardware/radio/V1_0/CarrierRestrictions;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeBool(Z)V
+
+    invoke-virtual {p3, v1}, Landroid/hardware/radio/V1_0/CarrierRestrictions;->writeToParcel(Landroid/os/HwParcel;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x7d
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public setBandMode(II)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x3b
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public setBarringPassword(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p3}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p4}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x2b
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public setCallForward(ILandroid/hardware/radio/V1_0/CallForwardInfo;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {p2, v1}, Landroid/hardware/radio/V1_0/CallForwardInfo;->writeToParcel(Landroid/os/HwParcel;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x23
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public setCallWaiting(IZI)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeBool(Z)V
+
+    invoke-virtual {v1, p3}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x25
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public setCdmaBroadcastActivation(IZ)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeBool(Z)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x55
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public setCdmaBroadcastConfig(ILjava/util/ArrayList;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I",
+            "Ljava/util/ArrayList",
+            "<",
+            "Landroid/hardware/radio/V1_0/CdmaBroadcastSmsConfigInfo;",
+            ">;)V"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-static {v1, p2}, Landroid/hardware/radio/V1_0/CdmaBroadcastSmsConfigInfo;->writeVectorToParcel(Landroid/os/HwParcel;Ljava/util/ArrayList;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x54
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public setCdmaRoamingPreference(II)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x46
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public setCdmaSubscriptionSource(II)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x45
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public setCellInfoListRate(II)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x65
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public setClir(II)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x21
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public setDataAllowed(IZ)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeBool(Z)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x72
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public setDataProfile(ILjava/util/ArrayList;Z)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I",
+            "Ljava/util/ArrayList",
+            "<",
+            "Landroid/hardware/radio/V1_0/DataProfileInfo;",
+            ">;Z)V"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-static {v1, p2}, Landroid/hardware/radio/V1_0/DataProfileInfo;->writeVectorToParcel(Landroid/os/HwParcel;Ljava/util/ArrayList;)V
+
+    invoke-virtual {v1, p3}, Landroid/os/HwParcel;->writeBool(Z)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x75
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public setFacilityLockForApp(ILjava/lang/String;ZLjava/lang/String;ILjava/lang/String;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p3}, Landroid/os/HwParcel;->writeBool(Z)V
+
+    invoke-virtual {v1, p4}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p5}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p6}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x2a
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public setGsmBroadcastActivation(IZ)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeBool(Z)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x52
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public setGsmBroadcastConfig(ILjava/util/ArrayList;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I",
+            "Ljava/util/ArrayList",
+            "<",
+            "Landroid/hardware/radio/V1_0/GsmBroadcastSmsConfigInfo;",
+            ">;)V"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-static {v1, p2}, Landroid/hardware/radio/V1_0/GsmBroadcastSmsConfigInfo;->writeVectorToParcel(Landroid/os/HwParcel;Ljava/util/ArrayList;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x51
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public setHALInstrumentation()V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hidl.base@1.0::IBase"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const v3, 0xf494e54
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public setIndicationFilter(II)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x80
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public setInitialAttachApn(ILandroid/hardware/radio/V1_0/DataProfileInfo;ZZ)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {p2, v1}, Landroid/hardware/radio/V1_0/DataProfileInfo;->writeToParcel(Landroid/os/HwParcel;)V
+
+    invoke-virtual {v1, p3}, Landroid/os/HwParcel;->writeBool(Z)V
+
+    invoke-virtual {v1, p4}, Landroid/os/HwParcel;->writeBool(Z)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x66
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public setLocationUpdates(IZ)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeBool(Z)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x44
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public setMute(IZ)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeBool(Z)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x34
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public setNetworkSelectionModeAutomatic(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x2d
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public setNetworkSelectionModeManual(ILjava/lang/String;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x2e
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public setPreferredNetworkType(II)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x41
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public setPreferredVoicePrivacy(IZ)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeBool(Z)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x4a
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public setRadioCapability(ILandroid/hardware/radio/V1_0/RadioCapability;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {p2, v1}, Landroid/hardware/radio/V1_0/RadioCapability;->writeToParcel(Landroid/os/HwParcel;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x78
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public setRadioPower(IZ)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeBool(Z)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x18
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public setResponseFunctions(Landroid/hardware/radio/V1_0/IRadioResponse;Landroid/hardware/radio/V1_0/IRadioIndication;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    const/4 v3, 0x0
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    if-nez p1, :cond_0
+
+    move-object v2, v3
+
+    :goto_0
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeStrongBinder(Landroid/os/IHwBinder;)V
+
+    if-nez p2, :cond_1
+
+    :goto_1
+    invoke-virtual {v1, v3}, Landroid/os/HwParcel;->writeStrongBinder(Landroid/os/IHwBinder;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/4 v3, 0x1
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->verifySuccess()V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :cond_0
+    invoke-interface {p1}, Landroid/hardware/radio/V1_0/IRadioResponse;->asBinder()Landroid/os/IHwBinder;
+
+    move-result-object v2
+
+    goto :goto_0
+
+    :cond_1
+    invoke-interface {p2}, Landroid/hardware/radio/V1_0/IRadioIndication;->asBinder()Landroid/os/IHwBinder;
+
+    move-result-object v3
+
+    goto :goto_1
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public setSimCardPower(IZ)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeBool(Z)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x81
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public setSmscAddress(ILjava/lang/String;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x5c
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public setSuppServiceNotifications(IZ)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeBool(Z)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x38
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public setTTYMode(II)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x48
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public setUiccSubscription(ILandroid/hardware/radio/V1_0/SelectUiccSub;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {p2, v1}, Landroid/hardware/radio/V1_0/SelectUiccSub;->writeToParcel(Landroid/os/HwParcel;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x71
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public setupDataCall(IILandroid/hardware/radio/V1_0/DataProfileInfo;ZZZ)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {p3, v1}, Landroid/hardware/radio/V1_0/DataProfileInfo;->writeToParcel(Landroid/os/HwParcel;)V
+
+    invoke-virtual {v1, p4}, Landroid/os/HwParcel;->writeBool(Z)V
+
+    invoke-virtual {v1, p5}, Landroid/os/HwParcel;->writeBool(Z)V
+
+    invoke-virtual {v1, p6}, Landroid/os/HwParcel;->writeBool(Z)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x1c
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public startDtmf(ILjava/lang/String;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x30
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public startLceService(IIZ)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p3}, Landroid/os/HwParcel;->writeBool(Z)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x79
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public stopDtmf(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x31
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public stopLceService(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x7a
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public supplyIccPin2ForApp(ILjava/lang/String;Ljava/lang/String;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p3}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/4 v3, 0x5
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public supplyIccPinForApp(ILjava/lang/String;Ljava/lang/String;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p3}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/4 v3, 0x3
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public supplyIccPuk2ForApp(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p3}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p4}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/4 v3, 0x6
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public supplyIccPukForApp(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p3}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p4}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/4 v3, 0x4
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public supplyNetworkDepersonalization(ILjava/lang/String;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {v1, p2}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x9
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public switchWaitingOrHoldingAndActive(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x10
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public toString()Ljava/lang/String;
+    .locals 3
+
+    :try_start_0
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {p0}, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->interfaceDescriptor()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "@Proxy"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    return-object v1
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "[class or subclass of vendor.samsung.hardware.radio@1.0::IRadio]@Proxy"
+
+    return-object v1
+.end method
+
+.method public unlinkToDeath(Landroid/os/IHwBinder$DeathRecipient;)Z
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    invoke-interface {v0, p1}, Landroid/os/IHwBinder;->unlinkToDeath(Landroid/os/IHwBinder$DeathRecipient;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public writeSmsToRuim(ILandroid/hardware/radio/V1_0/CdmaSmsWriteArgs;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {p2, v1}, Landroid/hardware/radio/V1_0/CdmaSmsWriteArgs;->writeToParcel(Landroid/os/HwParcel;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x57
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method
+
+.method public writeSmsToSim(ILandroid/hardware/radio/V1_0/SmsWriteArgs;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v1, Landroid/os/HwParcel;
+
+    invoke-direct {v1}, Landroid/os/HwParcel;-><init>()V
+
+    const-string/jumbo v2, "android.hardware.radio@1.0::IRadio"
+
+    invoke-virtual {v1, v2}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {p2, v1}, Landroid/hardware/radio/V1_0/SmsWriteArgs;->writeToParcel(Landroid/os/HwParcel;)V
+
+    new-instance v0, Landroid/os/HwParcel;
+
+    invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/telephony/hardware/radio/V1_0/IRadio$Proxy;->mRemote:Landroid/os/IHwBinder;
+
+    const/16 v3, 0x39
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v1, v0, v4}, Landroid/os/IHwBinder;->transact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
+
+    invoke-virtual {v1}, Landroid/os/HwParcel;->releaseTemporaryStorage()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Landroid/os/HwParcel;->release()V
+
+    throw v2
+.end method

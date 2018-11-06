@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE siop_document [
+<!ELEMENT siop_document (levels , default_scenario , extra_scenario?)>
+<!ELEMENT levels (level)+>
+<!ELEMENT level EMPTY>
+<!ATTLIST level
+          id CDATA #REQUIRED
+          temp CDATA #REQUIRED>
+<!ELEMENT default_scenario (limiter)+>
+<!ELEMENT limiter (sts_item* , table_item*)>
+<!ATTLIST limiter
+          name CDATA #REQUIRED
+          type (STS|number|bool) #REQUIRED>
+<!ELEMENT sts_item EMPTY>
+<!ATTLIST sts_item
+          pre CDATA #IMPLIED
+          perc CDATA #IMPLIED
+          trigger CDATA #REQUIRED
+          release CDATA #REQUIRED
+          min CDATA #IMPLIED
+          max CDATA #IMPLIED
+          duration CDATA #IMPLIED>
+<!ELEMENT table_item EMPTY>
+<!ATTLIST table_item
+          temp CDATA #REQUIRED
+          value CDATA #REQUIRED
+          low_temp CDATA #IMPLIED>
+<!ELEMENT extra_scenario (scenario)+>
+<!ELEMENT scenario (trigger_statuses? , trigger_packages? , limiter*)>
+<!ATTLIST scenario name CDATA #REQUIRED>
+<!ATTLIST scenario priority CDATA #IMPLIED>
+<!ELEMENT trigger_statuses (status)+>
+<!ELEMENT status EMPTY>
+<!ATTLIST status name CDATA #REQUIRED>
+<!ELEMENT trigger_packages (package)+>
+<!ELEMENT package EMPTY>
+<!ATTLIST package name CDATA #REQUIRED>
+] >
+
+<siop_document>
+
+    <model_settings>
+        <setting name="TemperatureGap">
+            <set model_gap="90" />
+        </setting>
+        <setting name="OverheatComplexControl">
+            <MW pst="490" bat="440" />
+            <LTB pst="490" bat="440" />
+            <SS pst="540" bat="450" />
+        </setting>
+    </model_settings>
+
+    <levels>
+        <level id="-3" temp="360" />
+        <level id="-2" temp="380" />
+        <level id="-1" temp="400" />
+        <level id="0" temp="420" />
+        <level id="1" temp="440" />
+        <level id="2" temp="460" />
+        <level id="3" temp="480" />
+        <level id="4" temp="500" />
+        <level id="5" temp="520" />
+        <level id="6" temp="540" />
+        <level id="7" temp="570" />
+        <level id="8" temp="610" />
+    </levels>
+
+    <default_scenario>
+        <limiter name="CPUFreqMax" type="STS">
+            <sts_item trigger="460" release="430" min="1560000" />
+        </limiter>
+        <limiter name="GPUFreqMax" type="STS">
+            <sts_item trigger="460" release="430" min="450" />
+        </limiter>
+        <limiter name="PST" type="number">
+            <table_item temp="420" value="1" />
+        </limiter>
+        <limiter name="Charging" type="number">
+            <table_item temp="460" value="70" />
+            <table_item temp="480" value="10" />
+            <table_item temp="520" value="10" />
+            <table_item temp="540" value="0" />
+        </limiter>
+        <limiter name="SmartBonding" type="bool">
+            <table_item temp="480" value="0" />
+        </limiter>
+        <limiter name="LCDBrightness" type="number">
+            <table_item temp="460" value="-1" />
+            <table_item temp="480" value="223" />
+        </limiter>
+        <limiter name="HmtLevel" type="number">
+            <table_item temp="420" value="0" />
+        </limiter>
+    </default_scenario>
+
+    <extra_scenario>
+
+        <scenario name="Navigation">
+            <limiter name="LCDBrightness" type="number">
+                <table_item temp="460" value="193" />
+            </limiter>
+        </scenario>
+
+        <scenario name="GameSDK" priority="1">
+            <limiter name="CPUFreqMax" type="sdk" />
+            <limiter name="GPUFreqMax" type="sdk" />
+        </scenario>
+
+        <scenario name="IPM+">
+            <limiter name="CPUFreqMax" type="ipm" />
+            <limiter name="GPUFreqMax" type="ipm" />
+        </scenario>
+
+        <scenario name="ScreenOff" priority="1">
+            <limiter name="Charging" type="number">
+                <table_item temp="420" value="100" />
+            </limiter>
+        </scenario>
+
+        <scenario name="ScreenOffInCall" priority="1">
+            <limiter name="Charging" type="number">
+                <table_item temp="420" value="10" />
+            </limiter>
+        </scenario>
+
+        <scenario name="HeadMountedTheater">
+            <limiter name="CPUFreqMax" type="number">
+                <table_item temp="450" value="-1" />
+                <table_item temp="625" value="396500" />
+            </limiter>
+            <limiter name="GPUFreqMax" type="number">
+                <table_item temp="450" value="-1" />
+                <table_item temp="625" value="845" />
+            </limiter>
+            <limiter name="HmtLevel" type="number">
+                <table_item temp="450" value="0" />
+                <table_item temp="625" value="1" />
+                <table_item temp="630" value="2" />
+            </limiter>
+        </scenario>
+
+        <scenario name="HeadMountedTheater_2">
+            <limiter name="CPUFreqMax" type="number">
+                <table_item temp="450" value="-1" />
+                <table_item temp="620" value="396500" />
+            </limiter>
+            <limiter name="GPUFreqMax" type="number">
+                <table_item temp="450" value="-1" />
+                <table_item temp="620" value="845" />
+            </limiter>
+            <limiter name="HmtLevel" type="number">
+                <table_item temp="450" value="0" />
+                <table_item temp="620" value="1" />
+                <table_item temp="630" value="2" />
+            </limiter>
+        </scenario>
+
+        <scenario name="BrowserScenario">
+            <limiter name="Charging" type="number">
+                <table_item temp="420" value="10" />
+            </limiter>
+        </scenario> 
+
+        <scenario name="TPBoost">
+            <trigger_packages>
+                <package name="com.FTATS" />
+            </trigger_packages>
+
+            <limiter name="CPUFreqMax" type="number">
+                <table_item temp="420" value="-1" />
+            </limiter>
+        </scenario>
+
+        <scenario name="GameThermalCpuControl-4">
+            <limiter name="CPUFreqMax" type="STS">
+                <sts_item pre="400" perc="60" trigger="420" release="380" min="936000" />
+            </limiter>
+        </scenario>
+
+        <scenario name="GameThermalCpuControl-3">
+            <limiter name="CPUFreqMax" type="STS">
+                <sts_item pre="420" perc="60" trigger="440" release="400" min="936000" />
+            </limiter>
+        </scenario>
+
+        <scenario name="GameThermalCpuControl-2">
+            <limiter name="CPUFreqMax" type="STS">
+                <sts_item pre="420" perc="60" trigger="440" release="400" min="1144000" />
+            </limiter>
+        </scenario>
+
+        <scenario name="GameThermalCpuControl-1">
+            <limiter name="CPUFreqMax" type="STS">
+                <sts_item pre="420" perc="65" trigger="440" release="400" min="1352000" />
+            </limiter>
+        </scenario>
+
+        <scenario name="GameThermalCpuControl0">
+            <limiter name="CPUFreqMax" type="STS">
+                <sts_item pre="420" perc="75" trigger="440" release="400" min="1560000" />
+            </limiter>
+        </scenario>
+
+        <scenario name="GameThermalCpuControl1">
+            <limiter name="CPUFreqMax" type="STS">
+                <sts_item pre="420" perc="85" trigger="440" release="400" min="1768000" />
+            </limiter>
+        </scenario>
+
+        <scenario name="GameThermalCpuControl2">
+            <limiter name="CPUFreqMax" type="STS">
+                <sts_item pre="420" perc="95" trigger="440" release="400" min="1976000" />
+            </limiter>
+        </scenario>
+
+        <scenario name="GameThermalCpuControl3">
+            <limiter name="CPUFreqMax" type="STS">
+                <sts_item trigger="440" release="400" min="2080000" />
+            </limiter>
+        </scenario>
+
+        <scenario name="GameThermalCpuControl4">
+            <limiter name="CPUFreqMax" type="STS">
+                <sts_item trigger="440" release="400" min="2184000" />
+            </limiter>
+        </scenario>
+
+        <scenario name="GameThermalCpuControl5">
+            <limiter name="CPUFreqMax" type="number">
+                <table_item temp="420" value="-1" />
+            </limiter>
+        </scenario>
+
+        <scenario name="GameThermalGpuControl-1">
+            <limiter name="GPUFreqMax" type="STS">
+                <sts_item pre="420" perc="60" trigger="440" release="400" min="343" />
+            </limiter>
+            <limiter name="Charging" type="number">
+                <table_item temp="420" value="10" />
+            </limiter>
+        </scenario>
+
+        <scenario name="GameThermalGpuControl0">
+            <limiter name="GPUFreqMax" type="STS">
+                <sts_item pre="420" perc="60" trigger="440" release="400" min="450" />
+            </limiter>
+            <limiter name="Charging" type="number">
+                <table_item temp="420" value="10" />
+            </limiter>
+        </scenario>
+
+        <scenario name="GameThermalGpuControl1">
+            <limiter name="GPUFreqMax" type="STS">
+                <sts_item pre="420" perc="60" trigger="440" release="400" min="545" />
+            </limiter>
+            <limiter name="Charging" type="number">
+                <table_item temp="420" value="10" />
+            </limiter>
+        </scenario>
+
+        <scenario name="GameThermalGpuControl2">
+            <limiter name="GPUFreqMax" type="STS">
+                <sts_item pre="420" perc="65" trigger="440" release="400" min="676" />
+            </limiter>
+            <limiter name="Charging" type="number">
+                <table_item temp="420" value="10" />
+            </limiter>
+        </scenario>
+
+        <scenario name="GameThermalGpuControl3">
+            <limiter name="GPUFreqMax" type="number">
+                <table_item temp="420" value="-1" />
+            </limiter>
+            <limiter name="Charging" type="number">
+                <table_item temp="420" value="10" />
+            </limiter>
+        </scenario>
+
+        <scenario name="HeavyUserScenario" priority="1">
+            <limiter name="CPUFreqMax" type="number">
+                <table_item temp="520" value="-1" />
+                <table_item temp="540" value="1560000" />
+                <table_item temp="570" value="1352000" />
+                <table_item temp="610" value="1144000" />
+            </limiter>
+            <limiter name="GPUFreqMax" type="number">
+                <table_item temp="520" value="-1" />
+                <table_item temp="540" value="450" />
+                <table_item temp="570" value="450" />
+                <table_item temp="610" value="343" />
+            </limiter>
+        </scenario>
+
+        <scenario name="AppStart" priority="1">
+            <limiter name="CPUFreqMax" type="number">
+                <table_item temp="420" value="-1" />
+            </limiter>
+            <limiter name="GPUFreqMax" type="number">
+                <table_item temp="420" value="-1" />
+            </limiter>
+        </scenario>
+
+        <scenario name="Badge" priority="1">
+            <limiter name="CPUFreqMax" type="number">
+                <table_item temp="420" value="-1" />
+            </limiter>
+            <limiter name="GPUFreqMax" type="number">
+                <table_item temp="420" value="-1" />
+            </limiter>
+        </scenario>
+
+        <scenario name="WakeUp" priority="1">
+            <limiter name="CPUFreqMax" type="number">
+                <table_item temp="420" value="-1" />
+            </limiter>
+            <limiter name="GPUFreqMax" type="number">
+                <table_item temp="420" value="-1" />
+            </limiter>
+        </scenario>
+
+        <scenario name="LowTemp" priority="3">
+            <limiter name="PST" type="number">
+                <table_item temp="420" value="2" />
+            </limiter>
+            <limiter name="CPUFreqMax" type="number">
+                <table_item temp="-150" value="1352000" />
+                <table_item temp="-130" value="-1" />
+            </limiter>
+            <limiter name="GPUFreqMax" type="number">
+                <table_item temp="-150" value="343" />
+                <table_item temp="-130" value="-1" />
+            </limiter>
+            <limiter name="LCDBrightness" type="number">
+                <table_item temp="-150" value="180" />
+                <table_item temp="-130" value="-1" />
+            </limiter>
+        </scenario>
+
+    </extra_scenario>
+
+</siop_document>
