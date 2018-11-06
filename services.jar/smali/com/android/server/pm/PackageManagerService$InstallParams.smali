@@ -168,7 +168,7 @@
     move v1, v7
 
     :goto_3
-    if-nez v1, :cond_1
+    if-eqz v1, :cond_1
 
     :try_start_1
     invoke-static {v0, p1}, Lcom/android/server/pm/PackageManagerService;->-wrap37(Landroid/content/pm/PackageParser$Package;Landroid/content/pm/PackageInfoLite;)V
