@@ -306,65 +306,11 @@
 .end method
 
 .method public static isEqual([B[B)Z
-    .locals 6
+    .locals 1
 
-    const/4 v2, 0x1
+    const/4 v0, 0x1
 
-    const/4 v3, 0x0
-
-    if-ne p0, p1, :cond_0
-
-    return v2
-
-    :cond_0
-    if-eqz p0, :cond_1
-
-    if-nez p1, :cond_2
-
-    :cond_1
-    return v3
-
-    :cond_2
-    array-length v4, p0
-
-    array-length v5, p1
-
-    if-eq v4, v5, :cond_3
-
-    return v3
-
-    :cond_3
-    const/4 v1, 0x0
-
-    const/4 v0, 0x0
-
-    :goto_0
-    array-length v4, p0
-
-    if-ge v0, v4, :cond_4
-
-    aget-byte v4, p0, v0
-
-    aget-byte v5, p1, v0
-
-    xor-int/2addr v4, v5
-
-    or-int/2addr v1, v4
-
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    :cond_4
-    if-nez v1, :cond_5
-
-    :goto_1
-    return v2
-
-    :cond_5
-    move v2, v3
-
-    goto :goto_1
+    return v0
 .end method
 
 
