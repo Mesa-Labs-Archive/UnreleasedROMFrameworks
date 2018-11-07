@@ -1524,7 +1524,7 @@
 .method public static getSensorType()I
     .locals 2
 
-    const-string/jumbo v0, "google_touch_side,settings=3,navi=1"
+    sget-object v0, Lcom/devkings/enso/EnsoDeviceFeature;->mFpSensorFeature:Ljava/lang/String;
 
     const-string/jumbo v1, "touch"
 
