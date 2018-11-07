@@ -14,7 +14,7 @@
 
 .field static final HARDWARE_NAME:Ljava/lang/String;
 
-.field static final SIOP_MODEL:Ljava/lang/String; = "ssrm_a7y18lte_xx"
+.field static final SIOP_MODEL:Ljava/lang/String; = "ssrm_default"
 
 .field static sIsDebugLevelHigh:Z
 
@@ -269,7 +269,7 @@
 
     :cond_1
     :goto_0
-    const-string/jumbo v3, "ssrm_a7y18lte_xx"
+    sget-object v3, Lcom/devkings/enso/EnsoDeviceFeature;->mSsrmSiopModel:Ljava/lang/String;
 
     const-string/jumbo v4, "lentis"
 
@@ -279,7 +279,7 @@
 
     if-nez v3, :cond_2
 
-    const-string/jumbo v3, "ssrm_a7y18lte_xx"
+    sget-object v3, Lcom/devkings/enso/EnsoDeviceFeature;->mSsrmSiopModel:Ljava/lang/String;
 
     const-string/jumbo v4, "kcat6"
 
@@ -369,7 +369,7 @@
 
     if-eqz v3, :cond_6
 
-    const-string/jumbo v3, "ssrm_a7y18lte_xx"
+    sget-object v3, Lcom/devkings/enso/EnsoDeviceFeature;->mSsrmSiopModel:Ljava/lang/String;
 
     const-string/jumbo v4, "novel"
 
@@ -478,7 +478,7 @@
     goto/16 :goto_0
 
     :cond_a
-    const-string/jumbo v3, "ssrm_a7y18lte_xx"
+    sget-object v3, Lcom/devkings/enso/EnsoDeviceFeature;->mSsrmSiopModel:Ljava/lang/String;
 
     const-string/jumbo v4, "ja_kor"
 

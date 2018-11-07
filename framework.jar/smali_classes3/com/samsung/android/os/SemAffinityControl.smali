@@ -10,7 +10,7 @@
 
 .field private static final HMP_CORE_REAR:I = 0x1
 
-.field private static final HMP_PROPERTY:Ljava/lang/String; = "6:2"
+.field private static final HMP_PROPERTY:Ljava/lang/String; = ""
 
 .field private static final TAG:Ljava/lang/String; = "SemAffinityControl"
 
@@ -81,11 +81,11 @@
 
     invoke-static {v4, v5}, Lcom/samsung/android/os/SemAffinityControl;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v4, "6:2"
+    sget-object v4, Lcom/devkings/enso/EnsoDeviceFeature;->mHmpProperty:Ljava/lang/String;
 
     if-eqz v4, :cond_3
 
-    const-string/jumbo v4, "6:2"
+    sget-object v4, Lcom/devkings/enso/EnsoDeviceFeature;->mHmpProperty:Ljava/lang/String;
 
     invoke-virtual {v4}, Ljava/lang/String;->length()I
 
@@ -93,7 +93,7 @@
 
     if-lez v4, :cond_3
 
-    const-string/jumbo v4, "6:2"
+    sget-object v4, Lcom/devkings/enso/EnsoDeviceFeature;->mHmpProperty:Ljava/lang/String;
 
     const-string/jumbo v5, ":"
 
@@ -692,11 +692,11 @@
 
     const/4 v2, 0x1
 
-    const-string/jumbo v0, "6:2"
+    sget-object v0, Lcom/devkings/enso/EnsoDeviceFeature;->mHmpProperty:Ljava/lang/String;
 
     if-eqz v0, :cond_1
 
-    const-string/jumbo v0, "6:2"
+    sget-object v0, Lcom/devkings/enso/EnsoDeviceFeature;->mHmpProperty:Ljava/lang/String;
 
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
@@ -740,11 +740,11 @@
 
     const/4 v2, 0x1
 
-    const-string/jumbo v0, "6:2"
+    sget-object v0, Lcom/devkings/enso/EnsoDeviceFeature;->mHmpProperty:Ljava/lang/String;
 
     if-eqz v0, :cond_1
 
-    const-string/jumbo v0, "6:2"
+    sget-object v0, Lcom/devkings/enso/EnsoDeviceFeature;->mHmpProperty:Ljava/lang/String;
 
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 

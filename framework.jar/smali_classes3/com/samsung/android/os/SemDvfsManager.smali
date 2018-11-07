@@ -177,11 +177,11 @@
 
     iput-object v0, p0, Lcom/samsung/android/os/SemDvfsManager;->BASE_MODEL:Ljava/lang/String;
 
-    const-string/jumbo v0, "ssrm_a7y18lte_xx"
+    sget-object v0, Lcom/devkings/enso/EnsoDeviceFeature;->mSsrmSiopModel:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/samsung/android/os/SemDvfsManager;->SIOP_MODEL:Ljava/lang/String;
 
-    const-string/jumbo v0, "dvfs_policy_exynos7885_xx"
+    sget-object v0, Lcom/devkings/enso/EnsoDeviceFeature;->mDvfsFileName:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/samsung/android/os/SemDvfsManager;->DVFS_FILENAME:Ljava/lang/String;
 

@@ -56,7 +56,7 @@
 
 .field static final ROTATION_GPU_BOOSTING_TIMEOUT:I = 0x7d0
 
-.field static final SIOP_MODEL:Ljava/lang/String; = "ssrm_a7y18lte_xx"
+.field static final SIOP_MODEL:Ljava/lang/String; = "ssrm_default"
 
 .field private static volatile mAMSCState:Lcom/samsung/android/os/SemDvfsManager;
 

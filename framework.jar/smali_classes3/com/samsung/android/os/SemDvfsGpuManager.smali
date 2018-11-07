@@ -114,7 +114,7 @@
 
     if-nez v3, :cond_1
 
-    const-string/jumbo v3, "dvfs_policy_exynos7885_xx"
+    sget-object v3, Lcom/devkings/enso/EnsoDeviceFeature;->mDvfsFileName:Ljava/lang/String;
 
     const-string/jumbo v4, "msm8996"
 
@@ -124,7 +124,7 @@
 
     if-nez v3, :cond_1
 
-    const-string/jumbo v3, "dvfs_policy_exynos7885_xx"
+    sget-object v3, Lcom/devkings/enso/EnsoDeviceFeature;->mDvfsFileName:Ljava/lang/String;
 
     const-string/jumbo v4, "kangchen"
 
@@ -194,7 +194,7 @@
     goto :goto_0
 
     :cond_4
-    const-string/jumbo v3, "dvfs_policy_exynos7885_xx"
+    sget-object v3, Lcom/devkings/enso/EnsoDeviceFeature;->mDvfsFileName:Ljava/lang/String;
 
     const-string/jumbo v4, "dvfs"
 
