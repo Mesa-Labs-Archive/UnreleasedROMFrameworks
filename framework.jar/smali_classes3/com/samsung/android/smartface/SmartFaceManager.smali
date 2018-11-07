@@ -172,11 +172,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/smartface/SmartFaceManager;->complete:Ljava/util/concurrent/locks/Condition;
 
-    const-string/jumbo v1, "2750"
-
-    invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v1
+    sget v1, Lcom/devkings/enso/EnsoDeviceFeature;->mSmartStayDelay:I
 
     iput v1, p0, Lcom/samsung/android/smartface/SmartFaceManager;->mSmartStayDelay:I
 
