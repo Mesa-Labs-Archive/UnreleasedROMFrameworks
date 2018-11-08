@@ -31,7 +31,7 @@
 
     sput-object v0, Lcom/samsung/android/hqm/setting/Feature;->sFeature:Lcom/samsung/android/hqm/setting/Feature;
 
-    const/4 v0, 0x0
+    sget-boolean v0, Lcom/devkings/enso/EnsoDeviceFeature;->mHqmBigData:Z
 
     sput-boolean v0, Lcom/samsung/android/hqm/setting/Feature;->HQM_BIGDATA_ENABLE:Z
 
