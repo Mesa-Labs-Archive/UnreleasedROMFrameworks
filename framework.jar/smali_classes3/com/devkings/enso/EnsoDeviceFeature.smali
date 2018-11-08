@@ -9,6 +9,8 @@
 
 .field public static mHmpProperty:Ljava/lang/String;
 
+.field public static mHqmBigData:Z
+
 .field public static mIsDream:Z
 
 .field public static mIsDream2:Z
@@ -49,6 +51,10 @@
     move-result-object v0
 
     sput-object v0, Lcom/devkings/enso/EnsoDeviceFeature;->mHmpProperty:Ljava/lang/String;
+
+    const/4 v0, 0x0
+
+    sput-boolean v0, Lcom/devkings/enso/EnsoDeviceFeature;->mHqmBigData:Z
 
     invoke-static {}, Lcom/devkings/enso/EnsoDeviceFeature;->getSmartStayDelay()I
 
@@ -110,7 +116,7 @@
     :cond_1
     sget-boolean v0, Lcom/devkings/enso/EnsoUtils;->mDebug:Z
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_6
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -177,7 +183,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_5
+    :cond_6
     return-void
 .end method
 
@@ -260,7 +266,7 @@
 
     sget-boolean v1, Lcom/devkings/enso/EnsoDeviceFeature;->mIsJackpot2:Z
 
-    if-nez v1, :cond_2
+    if-eqz v1, :cond_2
 
     :cond_0
     const-string/jumbo v0, "dvfs_policy_exynos7885_xx"
@@ -298,15 +304,15 @@
 
     sget-boolean v1, Lcom/devkings/enso/EnsoDeviceFeature;->mIsJackpot2:Z
 
-    if-nez v1, :cond_2
+    if-eqz v1, :cond_2
 
     :cond_0
-    const-string/jumbo v0, "INSERT A8 FEATURE HERE"
+    const-string/jumbo v0, "google_touch_rear_land,settings=3,navi=1"
 
     goto :goto_0
 
     :cond_1
-    const-string/jumbo v0, "INSERT S8/N8 FEATURE HERE"
+    const-string/jumbo v0, "google_touch_rear,navi=1"
 
     :cond_2
     :goto_0
@@ -336,7 +342,7 @@
 
     sget-boolean v1, Lcom/devkings/enso/EnsoDeviceFeature;->mIsJackpot2:Z
 
-    if-nez v1, :cond_2
+    if-eqz v1, :cond_2
 
     :cond_0
     const-string/jumbo v0, "6:2"
@@ -374,7 +380,7 @@
 
     sget-boolean v1, Lcom/devkings/enso/EnsoDeviceFeature;->mIsJackpot2:Z
 
-    if-nez v1, :cond_2
+    if-eqz v1, :cond_2
 
     :cond_0
     const-string/jumbo v0, "2750"
