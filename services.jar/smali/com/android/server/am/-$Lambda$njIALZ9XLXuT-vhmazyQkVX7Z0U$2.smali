@@ -17,7 +17,7 @@
 
     check-cast v0, Lcom/android/server/am/ActivityRecord;
 
-    invoke-static {v0}, Lcom/android/server/am/ActivityManagerService;->lambda$-com_android_server_am_ActivityManagerService_190756(Lcom/android/server/am/ActivityRecord;)V
+    invoke-static {v0}, Lcom/android/server/am/ActivityManagerService;->lambda$-com_android_server_am_ActivityManagerService_190925(Lcom/android/server/am/ActivityRecord;)V
 
     return-void
 .end method

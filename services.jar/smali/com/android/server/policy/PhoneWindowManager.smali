@@ -3479,7 +3479,7 @@
 
     if-eqz v0, :cond_0
 
-    invoke-static {}, Lcom/android/server/policy/PolicyControl;->isForceImmersiveModeAndGestureEnabled()Z
+    invoke-static {}, Lcom/android/server/policy/PolicyControl;->isGestureNavBarEnabled()Z
 
     move-result v0
 
@@ -9207,7 +9207,7 @@
 
     if-eqz v4, :cond_6
 
-    invoke-static {}, Lcom/android/server/policy/PolicyControl;->isForceImmersiveModeAndGestureEnabled()Z
+    invoke-static {}, Lcom/android/server/policy/PolicyControl;->isGestureNavBarEnabled()Z
 
     move-result v4
 
@@ -18097,7 +18097,7 @@
 
     if-eqz v0, :cond_0
 
-    invoke-static {}, Lcom/android/server/policy/PolicyControl;->isForceImmersiveModeAndGestureEnabled()Z
+    invoke-static {}, Lcom/android/server/policy/PolicyControl;->isGestureNavBarEnabled()Z
 
     move-result v0
 
@@ -26152,7 +26152,7 @@
     return v0
 .end method
 
-.method synthetic lambda$-com_android_server_policy_PhoneWindowManager_248649(Landroid/view/InputChannel;Landroid/os/Looper;)Landroid/view/InputEventReceiver;
+.method synthetic lambda$-com_android_server_policy_PhoneWindowManager_248619(Landroid/view/InputChannel;Landroid/os/Looper;)Landroid/view/InputEventReceiver;
     .locals 1
 
     new-instance v0, Lcom/android/server/policy/PhoneWindowManager$HideNavInputEventReceiver;
@@ -31568,7 +31568,7 @@
 
     if-eqz v2, :cond_7
 
-    invoke-static {}, Lcom/android/server/policy/PolicyControl;->isGestureEnabled()Z
+    invoke-static {}, Lcom/android/server/policy/PolicyControl;->isGestureNavBarEnabled()Z
 
     move-result v2
 
@@ -33865,6 +33865,16 @@
     iput-object p1, p0, Lcom/android/server/policy/PhoneWindowManager;->mLastInputMethodWindow:Landroid/view/WindowManagerPolicy$WindowState;
 
     iput-object p2, p0, Lcom/android/server/policy/PhoneWindowManager;->mLastInputMethodTargetWindow:Landroid/view/WindowManagerPolicy$WindowState;
+
+    return-void
+.end method
+
+.method public setLockTaskModeState(I)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager;->mSPWM:Lcom/android/server/policy/IPhoneWindowManagerBridge;
+
+    invoke-interface {v0, p1}, Lcom/android/server/policy/IPhoneWindowManagerBridge;->setLockTaskModeState(I)V
 
     return-void
 .end method

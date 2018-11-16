@@ -29,7 +29,7 @@
 
     check-cast v2, Landroid/app/PictureInPictureParams;
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/am/ActivityManagerService;->lambda$-com_android_server_am_ActivityManagerService_469780(Lcom/android/server/am/ActivityRecord;Landroid/app/PictureInPictureParams;)V
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/am/ActivityManagerService;->lambda$-com_android_server_am_ActivityManagerService_469949(Lcom/android/server/am/ActivityRecord;Landroid/app/PictureInPictureParams;)V
 
     return-void
 .end method

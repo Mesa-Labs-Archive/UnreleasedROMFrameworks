@@ -3259,6 +3259,511 @@
     return v10
 .end method
 
+.method measureAllOffsets([ZLandroid/graphics/Paint$FontMetricsInt;)[F
+    .locals 28
+
+    move-object/from16 v0, p0
+
+    iget v1, v0, Landroid/text/TextLine;->mLen:I
+
+    add-int/lit8 v1, v1, 0x1
+
+    new-array v0, v1, [F
+
+    move-object/from16 v21, v0
+
+    move-object/from16 v0, p0
+
+    iget v1, v0, Landroid/text/TextLine;->mLen:I
+
+    add-int/lit8 v1, v1, 0x1
+
+    new-array v0, v1, [I
+
+    move-object/from16 v26, v0
+
+    const/4 v3, 0x0
+
+    :goto_0
+    move-object/from16 v0, v26
+
+    array-length v1, v0
+
+    if-ge v3, v1, :cond_1
+
+    aget-boolean v1, p1, v3
+
+    if-eqz v1, :cond_0
+
+    add-int/lit8 v1, v3, -0x1
+
+    :goto_1
+    aput v1, v26, v3
+
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    move v1, v3
+
+    goto :goto_1
+
+    :cond_1
+    const/4 v1, 0x0
+
+    aget v1, v26, v1
+
+    if-gez v1, :cond_2
+
+    const/4 v1, 0x0
+
+    const/4 v2, 0x0
+
+    aput v1, v21, v2
+
+    :cond_2
+    const/16 v19, 0x0
+
+    move-object/from16 v0, p0
+
+    iget-boolean v1, v0, Landroid/text/TextLine;->mHasTabs:Z
+
+    if-nez v1, :cond_6
+
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Landroid/text/TextLine;->mDirections:Landroid/text/Layout$Directions;
+
+    sget-object v2, Landroid/text/Layout;->DIRS_ALL_LEFT_TO_RIGHT:Landroid/text/Layout$Directions;
+
+    if-ne v1, v2, :cond_4
+
+    const/4 v3, 0x0
+
+    :goto_2
+    move-object/from16 v0, p0
+
+    iget v1, v0, Landroid/text/TextLine;->mLen:I
+
+    if-gt v3, v1, :cond_3
+
+    move-object/from16 v0, p0
+
+    iget v4, v0, Landroid/text/TextLine;->mLen:I
+
+    const/4 v2, 0x0
+
+    const/4 v5, 0x0
+
+    move-object/from16 v1, p0
+
+    move-object/from16 v6, p2
+
+    invoke-direct/range {v1 .. v6}, Landroid/text/TextLine;->measureRun(IIIZLandroid/graphics/Paint$FontMetricsInt;)F
+
+    move-result v1
+
+    aput v1, v21, v3
+
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_2
+
+    :cond_3
+    return-object v21
+
+    :cond_4
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Landroid/text/TextLine;->mDirections:Landroid/text/Layout$Directions;
+
+    sget-object v2, Landroid/text/Layout;->DIRS_ALL_RIGHT_TO_LEFT:Landroid/text/Layout$Directions;
+
+    if-ne v1, v2, :cond_6
+
+    const/4 v3, 0x0
+
+    :goto_3
+    move-object/from16 v0, p0
+
+    iget v1, v0, Landroid/text/TextLine;->mLen:I
+
+    if-gt v3, v1, :cond_5
+
+    move-object/from16 v0, p0
+
+    iget v4, v0, Landroid/text/TextLine;->mLen:I
+
+    const/4 v2, 0x0
+
+    const/4 v5, 0x1
+
+    move-object/from16 v1, p0
+
+    move-object/from16 v6, p2
+
+    invoke-direct/range {v1 .. v6}, Landroid/text/TextLine;->measureRun(IIIZLandroid/graphics/Paint$FontMetricsInt;)F
+
+    move-result v1
+
+    aput v1, v21, v3
+
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_3
+
+    :cond_5
+    return-object v21
+
+    :cond_6
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/text/TextLine;->mChars:[C
+
+    move-object/from16 v17, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Landroid/text/TextLine;->mDirections:Landroid/text/Layout$Directions;
+
+    iget-object v0, v1, Landroid/text/Layout$Directions;->mDirections:[I
+
+    move-object/from16 v25, v0
+
+    const/16 v20, 0x0
+
+    :goto_4
+    move-object/from16 v0, v25
+
+    array-length v1, v0
+
+    move/from16 v0, v20
+
+    if-ge v0, v1, :cond_17
+
+    aget v24, v25, v20
+
+    add-int/lit8 v1, v20, 0x1
+
+    aget v1, v25, v1
+
+    const v2, 0x3ffffff
+
+    and-int/2addr v1, v2
+
+    add-int v23, v24, v1
+
+    move-object/from16 v0, p0
+
+    iget v1, v0, Landroid/text/TextLine;->mLen:I
+
+    move/from16 v0, v23
+
+    if-le v0, v1, :cond_7
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/text/TextLine;->mLen:I
+
+    move/from16 v23, v0
+
+    :cond_7
+    add-int/lit8 v1, v20, 0x1
+
+    aget v1, v25, v1
+
+    const/high16 v2, 0x4000000
+
+    and-int/2addr v1, v2
+
+    if-eqz v1, :cond_9
+
+    const/4 v8, 0x1
+
+    :goto_5
+    move/from16 v5, v24
+
+    move-object/from16 v0, p0
+
+    iget-boolean v1, v0, Landroid/text/TextLine;->mHasTabs:Z
+
+    if-eqz v1, :cond_a
+
+    move/from16 v6, v24
+
+    :goto_6
+    move/from16 v0, v23
+
+    if-gt v6, v0, :cond_16
+
+    const/16 v18, 0x0
+
+    move-object/from16 v0, p0
+
+    iget-boolean v1, v0, Landroid/text/TextLine;->mHasTabs:Z
+
+    if-eqz v1, :cond_b
+
+    move/from16 v0, v23
+
+    if-ge v6, v0, :cond_b
+
+    aget-char v18, v17, v6
+
+    const v1, 0xd800
+
+    move/from16 v0, v18
+
+    if-lt v0, v1, :cond_b
+
+    const v1, 0xdc00
+
+    move/from16 v0, v18
+
+    if-ge v0, v1, :cond_b
+
+    add-int/lit8 v1, v6, 0x1
+
+    move/from16 v0, v23
+
+    if-ge v1, v0, :cond_b
+
+    move-object/from16 v0, v17
+
+    invoke-static {v0, v6}, Ljava/lang/Character;->codePointAt([CI)I
+
+    move-result v18
+
+    const v1, 0xffff
+
+    move/from16 v0, v18
+
+    if-le v0, v1, :cond_b
+
+    add-int/lit8 v6, v6, 0x1
+
+    :cond_8
+    :goto_7
+    add-int/lit8 v6, v6, 0x1
+
+    goto :goto_6
+
+    :cond_9
+    const/4 v8, 0x0
+
+    goto :goto_5
+
+    :cond_a
+    move/from16 v6, v23
+
+    goto :goto_6
+
+    :cond_b
+    move/from16 v0, v23
+
+    if-eq v6, v0, :cond_c
+
+    const/16 v1, 0x9
+
+    move/from16 v0, v18
+
+    if-ne v0, v1, :cond_8
+
+    :cond_c
+    move/from16 v22, v19
+
+    move-object/from16 v0, p0
+
+    iget v1, v0, Landroid/text/TextLine;->mDir:I
+
+    const/4 v2, -0x1
+
+    if-ne v1, v2, :cond_e
+
+    const/4 v1, 0x1
+
+    :goto_8
+    if-ne v1, v8, :cond_f
+
+    const/4 v15, 0x1
+
+    :goto_9
+    move-object/from16 v4, p0
+
+    move v7, v6
+
+    move-object/from16 v9, p2
+
+    invoke-direct/range {v4 .. v9}, Landroid/text/TextLine;->measureRun(IIIZLandroid/graphics/Paint$FontMetricsInt;)F
+
+    move-result v27
+
+    if-eqz v15, :cond_10
+
+    :goto_a
+    add-float v19, v19, v27
+
+    if-eqz v15, :cond_11
+
+    move/from16 v16, v22
+
+    :goto_b
+    if-eqz v15, :cond_12
+
+    move-object/from16 v14, p2
+
+    :goto_c
+    move v3, v5
+
+    :goto_d
+    if-gt v3, v6, :cond_13
+
+    move-object/from16 v0, p0
+
+    iget v1, v0, Landroid/text/TextLine;->mLen:I
+
+    if-gt v3, v1, :cond_13
+
+    aget v1, v26, v3
+
+    if-lt v1, v5, :cond_d
+
+    aget v1, v26, v3
+
+    if-ge v1, v6, :cond_d
+
+    move-object/from16 v9, p0
+
+    move v10, v5
+
+    move v11, v3
+
+    move v12, v6
+
+    move v13, v8
+
+    invoke-direct/range {v9 .. v14}, Landroid/text/TextLine;->measureRun(IIIZLandroid/graphics/Paint$FontMetricsInt;)F
+
+    move-result v1
+
+    add-float v1, v1, v16
+
+    aput v1, v21, v3
+
+    :cond_d
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_d
+
+    :cond_e
+    const/4 v1, 0x0
+
+    goto :goto_8
+
+    :cond_f
+    const/4 v15, 0x0
+
+    goto :goto_9
+
+    :cond_10
+    move/from16 v0, v27
+
+    neg-float v0, v0
+
+    move/from16 v27, v0
+
+    goto :goto_a
+
+    :cond_11
+    move/from16 v16, v19
+
+    goto :goto_b
+
+    :cond_12
+    const/4 v14, 0x0
+
+    goto :goto_c
+
+    :cond_13
+    const/16 v1, 0x9
+
+    move/from16 v0, v18
+
+    if-ne v0, v1, :cond_15
+
+    aget v1, v26, v6
+
+    if-ne v1, v6, :cond_14
+
+    aput v19, v21, v6
+
+    :cond_14
+    move-object/from16 v0, p0
+
+    iget v1, v0, Landroid/text/TextLine;->mDir:I
+
+    int-to-float v1, v1
+
+    move-object/from16 v0, p0
+
+    iget v2, v0, Landroid/text/TextLine;->mDir:I
+
+    int-to-float v2, v2
+
+    mul-float v2, v2, v19
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v2}, Landroid/text/TextLine;->nextTab(F)F
+
+    move-result v2
+
+    mul-float v19, v1, v2
+
+    add-int/lit8 v1, v6, 0x1
+
+    aget v1, v26, v1
+
+    if-ne v1, v6, :cond_15
+
+    add-int/lit8 v1, v6, 0x1
+
+    aput v19, v21, v1
+
+    :cond_15
+    add-int/lit8 v5, v6, 0x1
+
+    goto/16 :goto_7
+
+    :cond_16
+    add-int/lit8 v20, v20, 0x2
+
+    goto/16 :goto_4
+
+    :cond_17
+    move-object/from16 v0, p0
+
+    iget v1, v0, Landroid/text/TextLine;->mLen:I
+
+    aget v1, v26, v1
+
+    move-object/from16 v0, p0
+
+    iget v2, v0, Landroid/text/TextLine;->mLen:I
+
+    if-ne v1, v2, :cond_18
+
+    move-object/from16 v0, p0
+
+    iget v1, v0, Landroid/text/TextLine;->mLen:I
+
+    aput v19, v21, v1
+
+    :cond_18
+    return-object v21
+.end method
+
 .method metrics(Landroid/graphics/Paint$FontMetricsInt;)F
     .locals 2
 

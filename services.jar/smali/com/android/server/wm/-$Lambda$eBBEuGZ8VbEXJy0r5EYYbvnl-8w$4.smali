@@ -19,7 +19,7 @@
 
     check-cast p1, Lcom/android/server/wm/WindowState;
 
-    invoke-static {v0, p1}, Lcom/android/server/wm/WindowManagerService;->lambda$-com_android_server_wm_WindowManagerService_213327(Ljava/util/ArrayList;Lcom/android/server/wm/WindowState;)V
+    invoke-static {v0, p1}, Lcom/android/server/wm/WindowManagerService;->lambda$-com_android_server_wm_WindowManagerService_213667(Ljava/util/ArrayList;Lcom/android/server/wm/WindowState;)V
 
     return-void
 .end method

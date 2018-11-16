@@ -1968,7 +1968,7 @@
 
     move-result-object v6
 
-    if-nez v9, :cond_d
+    if-nez v9, :cond_e
 
     const/4 v4, 0x0
 
@@ -2005,7 +2005,7 @@
     const/4 v4, 0x1
 
     :cond_8
-    if-nez v4, :cond_d
+    if-nez v4, :cond_e
 
     const/4 v10, 0x0
 
@@ -2045,11 +2045,20 @@
     if-le v0, v10, :cond_7
 
     :cond_c
+    const/16 v10, 0x30
+
+    if-lt v0, v10, :cond_d
+
+    const/16 v10, 0x39
+
+    if-le v0, v10, :cond_7
+
+    :cond_d
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_2
 
-    :cond_d
+    :cond_e
     const/4 v7, 0x0
 
     const/4 v3, 0x0
@@ -2059,7 +2068,7 @@
 
     move-result v10
 
-    if-ge v3, v10, :cond_f
+    if-ge v3, v10, :cond_10
 
     invoke-virtual {v1, v3}, Ljava/lang/String;->charAt(I)C
 
@@ -2067,31 +2076,31 @@
 
     const/16 v11, 0x2e
 
-    if-ne v10, v11, :cond_e
+    if-ne v10, v11, :cond_f
 
     add-int/lit8 v7, v7, 0x1
 
-    :cond_e
+    :cond_f
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_3
 
-    :cond_f
+    :cond_10
     array-length v10, v6
 
-    if-lt v7, v10, :cond_10
+    if-lt v7, v10, :cond_11
 
     const/4 v10, 0x0
 
     return v10
 
-    :cond_10
+    :cond_11
     const/4 v10, 0x0
 
     array-length v11, v6
 
     :goto_4
-    if-ge v10, v11, :cond_12
+    if-ge v10, v11, :cond_13
 
     aget-object v5, v6, v10
 
@@ -2101,18 +2110,18 @@
 
     const/16 v13, 0x3f
 
-    if-le v12, v13, :cond_11
+    if-le v12, v13, :cond_12
 
     const/4 v10, 0x0
 
     return v10
 
-    :cond_11
+    :cond_12
     add-int/lit8 v10, v10, 0x1
 
     goto :goto_4
 
-    :cond_12
+    :cond_13
     const-string/jumbo v8, "^[A-Za-z0-9-]+$"
 
     const/4 v10, 0x0
@@ -2120,7 +2129,7 @@
     array-length v11, v6
 
     :goto_5
-    if-ge v10, v11, :cond_16
+    if-ge v10, v11, :cond_17
 
     aget-object v5, v6, v10
 
@@ -2128,7 +2137,7 @@
 
     move-result v12
 
-    if-eqz v12, :cond_14
+    if-eqz v12, :cond_15
 
     const/4 v12, 0x0
 
@@ -2138,13 +2147,13 @@
 
     const/16 v13, 0x2d
 
-    if-ne v12, v13, :cond_13
+    if-ne v12, v13, :cond_14
 
     xor-int/lit8 v12, v9, 0x1
 
-    if-nez v12, :cond_14
+    if-nez v12, :cond_15
 
-    :cond_13
+    :cond_14
     invoke-virtual {v5}, Ljava/lang/String;->length()I
 
     move-result v12
@@ -2157,23 +2166,23 @@
 
     const/16 v13, 0x2d
 
-    if-ne v12, v13, :cond_15
+    if-ne v12, v13, :cond_16
 
     xor-int/lit8 v12, v2, 0x1
 
-    if-eqz v12, :cond_15
+    if-eqz v12, :cond_16
 
-    :cond_14
+    :cond_15
     const/4 v10, 0x0
 
     return v10
 
-    :cond_15
+    :cond_16
     add-int/lit8 v10, v10, 0x1
 
     goto :goto_5
 
-    :cond_16
+    :cond_17
     const/4 v10, 0x1
 
     return v10

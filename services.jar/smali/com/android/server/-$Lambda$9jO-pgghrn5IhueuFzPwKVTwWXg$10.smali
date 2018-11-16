@@ -23,7 +23,7 @@
 
     iget-wide v2, p0, Lcom/android/server/-$Lambda$9jO-pgghrn5IhueuFzPwKVTwWXg$10;->-$f2:J
 
-    invoke-static {v0, v1, v2, v3, p1}, Lcom/android/server/NetworkManagementService;->lambda$-com_android_server_NetworkManagementService_25511(IZJLandroid/net/INetworkManagementEventObserver;)V
+    invoke-static {v0, v1, v2, v3, p1}, Lcom/android/server/NetworkManagementService;->lambda$-com_android_server_NetworkManagementService_25834(IZJLandroid/net/INetworkManagementEventObserver;)V
 
     return-void
 .end method

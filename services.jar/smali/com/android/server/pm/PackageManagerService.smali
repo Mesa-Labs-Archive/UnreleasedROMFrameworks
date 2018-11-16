@@ -100696,7 +100696,7 @@
 .end method
 
 .method public AASA_updateRestrictList()V
-    .locals 25
+    .locals 26
 
     invoke-direct/range {p0 .. p0}, Lcom/android/server/pm/PackageManagerService;->AASA_enforcePermissionCheck()Z
 
@@ -100717,7 +100717,7 @@
 
     invoke-direct/range {v16 .. v16}, Landroid/content/pm/aasa/AASATokenParser;-><init>()V
 
-    const/16 v23, 0x0
+    const/16 v24, 0x0
 
     const/4 v11, 0x0
 
@@ -100728,7 +100728,7 @@
 
     invoke-virtual {v0, v2}, Landroid/content/pm/aasa/AASATokenParser;->GetRestrictedInfoFromXML(Ljava/lang/String;)Landroid/content/pm/aasa/RestrictList;
 
-    move-result-object v23
+    move-result-object v24
 
     const-string/jumbo v2, "/data/system/.aasa/RestrictedPackages.xml"
 
@@ -100742,19 +100742,19 @@
     move-result-object v11
 
     :goto_0
-    if-eqz v11, :cond_c
+    if-eqz v11, :cond_d
 
-    if-eqz v23, :cond_9
+    if-eqz v24, :cond_9
 
-    invoke-virtual/range {v23 .. v23}, Landroid/content/pm/aasa/RestrictList;->getHead()Landroid/content/pm/aasa/RestrictList$RestrictNode;
+    invoke-virtual/range {v24 .. v24}, Landroid/content/pm/aasa/RestrictList;->getHead()Landroid/content/pm/aasa/RestrictList$RestrictNode;
 
     move-result-object v2
 
     invoke-virtual {v2}, Landroid/content/pm/aasa/RestrictList$RestrictNode;->getChildList()Ljava/util/ArrayList;
 
-    move-result-object v19
+    move-result-object v20
 
-    invoke-interface/range {v19 .. v19}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface/range {v20 .. v20}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v18
 
@@ -100774,7 +100774,7 @@
 
     const-string/jumbo v2, "CERT"
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v24
 
     move-object/from16 v1, v17
 
@@ -100829,7 +100829,7 @@
     :cond_2
     const-string/jumbo v2, "CERT"
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v24
 
     move-object/from16 v1, v17
 
@@ -100837,7 +100837,7 @@
 
     invoke-virtual {v8}, Landroid/content/pm/aasa/RestrictList$RestrictNode;->getType()Ljava/lang/String;
 
-    move-result-object v22
+    move-result-object v23
 
     invoke-virtual/range {v17 .. v17}, Landroid/content/pm/aasa/RestrictList$RestrictNode;->getType()Ljava/lang/String;
 
@@ -100847,11 +100847,11 @@
 
     invoke-virtual {v0, v2}, Lcom/android/server/pm/PackageManagerService;->getSignatureInfo(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v21
+    move-result-object v22
 
-    if-eqz v22, :cond_3
+    if-eqz v23, :cond_3
 
-    if-nez v21, :cond_4
+    if-nez v22, :cond_4
 
     :cond_3
     const-string/jumbo v2, "AASAASKS"
@@ -100865,7 +100865,7 @@
     :cond_4
     const-string/jumbo v2, "DELETE"
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v24
 
     move-object/from16 v1, v17
 
@@ -100881,9 +100881,9 @@
 
     if-eqz v2, :cond_1
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v21
+    move-object/from16 v1, v22
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -100899,11 +100899,11 @@
 
     invoke-virtual {v11, v4, v2}, Landroid/content/pm/aasa/RestrictList;->findNodeByType(Landroid/content/pm/aasa/RestrictList$RestrictNode;Ljava/lang/String;)Landroid/content/pm/aasa/RestrictList$RestrictNode;
 
-    move-result-object v24
+    move-result-object v25
 
-    if-eqz v24, :cond_5
+    if-eqz v25, :cond_5
 
-    invoke-virtual/range {v24 .. v24}, Landroid/content/pm/aasa/RestrictList$RestrictNode;->getType()Ljava/lang/String;
+    invoke-virtual/range {v25 .. v25}, Landroid/content/pm/aasa/RestrictList$RestrictNode;->getType()Ljava/lang/String;
 
     move-result-object v2
 
@@ -100914,7 +100914,7 @@
     :cond_5
     const-string/jumbo v2, "REMOVE"
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v24
 
     move-object/from16 v1, v17
 
@@ -101011,13 +101011,13 @@
 
     invoke-static {v2, v4}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v20
+    move-result-object v21
 
-    if-eqz v20, :cond_a
+    if-eqz v21, :cond_a
 
     const-string/jumbo v2, "00000000"
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -101028,26 +101028,26 @@
     :cond_a
     invoke-virtual/range {v16 .. v16}, Landroid/content/pm/aasa/AASATokenParser;->getTrustedToday()Ljava/lang/String;
 
-    move-result-object v20
+    move-result-object v21
 
     :cond_b
     const-string/jumbo v2, "DATE"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v20
+    move-object/from16 v1, v21
 
     invoke-virtual {v0, v2, v1}, Lcom/android/server/pm/PackageManagerService;->AASA_checkRestrictList(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
 
     move-result-object v9
 
-    if-eqz v9, :cond_c
+    if-eqz v9, :cond_d
 
     invoke-interface {v9}, Ljava/util/List;->size()I
 
     move-result v2
 
-    if-eqz v2, :cond_c
+    if-eqz v2, :cond_d
 
     invoke-interface {v9}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
@@ -101058,13 +101058,38 @@
 
     move-result v2
 
-    if-eqz v2, :cond_c
+    if-eqz v2, :cond_d
 
     invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Ljava/lang/String;
+
+    const/16 v19, 0x0
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/pm/PackageManagerService;->mPackages:Landroid/util/ArrayMap;
+
+    monitor-enter v4
+
+    :try_start_2
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/pm/PackageManagerService;->mPackages:Landroid/util/ArrayMap;
+
+    invoke-virtual {v2, v3}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v19
+
+    check-cast v19, Landroid/content/pm/PackageParser$Package;
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    monitor-exit v4
+
+    if-eqz v19, :cond_c
 
     move-object/from16 v0, p0
 
@@ -101100,7 +101125,43 @@
 
     goto :goto_2
 
+    :catchall_0
+    move-exception v2
+
+    monitor-exit v4
+
+    throw v2
+
     :cond_c
+    const-string/jumbo v2, "AASAASKS"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "does not found restricted target - "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v2, v4}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v0, v3}, Landroid/content/pm/aasa/AASATokenParser;->RemoveRestrictedInfoToXML(Ljava/lang/String;)V
+
+    goto :goto_3
+
+    :cond_d
     return-void
 .end method
 

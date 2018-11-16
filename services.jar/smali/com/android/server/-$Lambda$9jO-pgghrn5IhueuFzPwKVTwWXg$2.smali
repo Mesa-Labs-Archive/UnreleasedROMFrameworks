@@ -17,7 +17,7 @@
 
     check-cast v0, Landroid/net/RouteInfo;
 
-    invoke-static {v0, p1}, Lcom/android/server/NetworkManagementService;->lambda$-com_android_server_NetworkManagementService_34649(Landroid/net/RouteInfo;Landroid/net/INetworkManagementEventObserver;)V
+    invoke-static {v0, p1}, Lcom/android/server/NetworkManagementService;->lambda$-com_android_server_NetworkManagementService_34972(Landroid/net/RouteInfo;Landroid/net/INetworkManagementEventObserver;)V
 
     return-void
 .end method

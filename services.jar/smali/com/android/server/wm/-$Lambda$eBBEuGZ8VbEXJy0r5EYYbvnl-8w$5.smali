@@ -25,7 +25,7 @@
 
     check-cast p1, Lcom/android/server/wm/WindowState;
 
-    invoke-virtual {v0, v1, p1}, Lcom/android/server/wm/WindowManagerService;->lambda$-com_android_server_wm_WindowManagerService_155636(Ljava/util/ArrayList;Lcom/android/server/wm/WindowState;)Z
+    invoke-virtual {v0, v1, p1}, Lcom/android/server/wm/WindowManagerService;->lambda$-com_android_server_wm_WindowManagerService_155976(Ljava/util/ArrayList;Lcom/android/server/wm/WindowState;)Z
 
     move-result v0
 

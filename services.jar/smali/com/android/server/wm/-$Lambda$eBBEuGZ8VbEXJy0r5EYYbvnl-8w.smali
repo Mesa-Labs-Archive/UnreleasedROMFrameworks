@@ -11,7 +11,7 @@
 
     check-cast p1, Lcom/android/server/wm/WindowState;
 
-    invoke-static {p1}, Lcom/android/server/wm/WindowManagerService;->lambda$-com_android_server_wm_WindowManagerService_129145(Lcom/android/server/wm/WindowState;)Z
+    invoke-static {p1}, Lcom/android/server/wm/WindowManagerService;->lambda$-com_android_server_wm_WindowManagerService_129485(Lcom/android/server/wm/WindowState;)Z
 
     move-result v0
 

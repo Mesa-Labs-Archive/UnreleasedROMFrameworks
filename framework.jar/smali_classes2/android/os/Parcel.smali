@@ -5522,7 +5522,7 @@
 .end method
 
 .method writeMapInternal(Ljava/util/Map;)V
-    .locals 4
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -5536,9 +5536,9 @@
 
     if-nez p1, :cond_0
 
-    const/4 v3, -0x1
+    const/4 v4, -0x1
 
-    invoke-virtual {p0, v3}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p0, v4}, Landroid/os/Parcel;->writeInt(I)V
 
     return-void
 
@@ -5560,9 +5560,9 @@
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_1
+    if-eqz v4, :cond_1
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -5572,19 +5572,32 @@
 
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {p0, v3}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
+    invoke-virtual {p0, v4}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {p0, v3}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
+    invoke-virtual {p0, v4}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
+
+    add-int/lit8 v3, v3, -0x1
 
     goto :goto_0
 
     :cond_1
+    if-eqz v3, :cond_2
+
+    new-instance v4, Landroid/os/BadParcelableException;
+
+    const-string/jumbo v5, "Map size does not match number of entries!"
+
+    invoke-direct {v4, v5}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
+
+    throw v4
+
+    :cond_2
     return-void
 .end method
 

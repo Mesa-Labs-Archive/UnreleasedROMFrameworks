@@ -3366,54 +3366,106 @@
 .end method
 
 .method public semSetBluetoothClass(I)Z
-    .locals 1
-
-    invoke-virtual {p0, p1}, Landroid/bluetooth/BluetoothDevice;->setBluetoothClass(I)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public semSetManufacturerData([B)Z
     .locals 4
 
-    const/4 v3, 0x0
+    invoke-static {}, Landroid/app/ActivityThread;->currentPackageName()Ljava/lang/String;
 
-    sget-object v1, Landroid/bluetooth/BluetoothDevice;->sService:Landroid/bluetooth/IBluetooth;
-
-    if-nez v1, :cond_0
+    move-result-object v0
 
     const-string/jumbo v1, "BluetoothDevice"
 
-    const-string/jumbo v2, "BT not enabled. Cannot set Remote Device class"
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "semSetBluetoothClass from package - "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v3
-
-    :cond_0
-    :try_start_0
-    sget-object v1, Landroid/bluetooth/BluetoothDevice;->sService:Landroid/bluetooth/IBluetooth;
-
-    invoke-interface {v1, p0, p1}, Landroid/bluetooth/IBluetooth;->setRemoteManufacturerData(Landroid/bluetooth/BluetoothDevice;[B)Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    invoke-virtual {p0, p1}, Landroid/bluetooth/BluetoothDevice;->setBluetoothClass(I)Z
 
     move-result v1
 
     return v1
+.end method
+
+.method public semSetManufacturerData([B)Z
+    .locals 6
+
+    const/4 v5, 0x0
+
+    sget-object v2, Landroid/bluetooth/BluetoothDevice;->sService:Landroid/bluetooth/IBluetooth;
+
+    if-nez v2, :cond_0
+
+    const-string/jumbo v2, "BluetoothDevice"
+
+    const-string/jumbo v3, "BT not enabled. Cannot set Remote Device class"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v5
+
+    :cond_0
+    invoke-static {}, Landroid/app/ActivityThread;->currentPackageName()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "BluetoothDevice"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "semSetManufacturerData from package - "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    :try_start_0
+    sget-object v2, Landroid/bluetooth/BluetoothDevice;->sService:Landroid/bluetooth/IBluetooth;
+
+    invoke-interface {v2, p0, p1}, Landroid/bluetooth/IBluetooth;->setRemoteManufacturerData(Landroid/bluetooth/BluetoothDevice;[B)Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v2
+
+    return v2
 
     :catch_0
     move-exception v0
 
-    const-string/jumbo v1, "BluetoothDevice"
+    const-string/jumbo v2, "BluetoothDevice"
 
-    const-string/jumbo v2, ""
+    const-string/jumbo v3, ""
 
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    return v3
+    return v5
 .end method
 
 .method public setAlias(Ljava/lang/String;)Z

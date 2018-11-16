@@ -688,6 +688,8 @@
 
 .field private mShowForceImmersiveIcon:Z
 
+.field private mShowNavBarWhileGesture:Z
+
 .field mShowingSViewCover:Z
 
 .field mSideSyncSourcePresentationActived:Z
@@ -757,11 +759,15 @@
 
 .field mWallpaperTargetMayChage:Z
 
+.field private mWasGesture:Z
+
 .field public mWatchLaunching:Z
 
 .field mWindowManager:Landroid/view/IWindowManager;
 
 .field mWindowManagerFuncs:Landroid/view/WindowManagerPolicy$WindowManagerFuncs;
+
+.field private mWindowPinned:Z
 
 
 # direct methods
@@ -5846,6 +5852,64 @@
     goto :goto_0
 .end method
 
+.method private updateGestureNavBar()V
+    .locals 4
+
+    const/4 v3, 0x1
+
+    const/4 v2, 0x0
+
+    iget-boolean v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mWindowPinned:Z
+
+    if-nez v0, :cond_0
+
+    iget-boolean v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mShowNavBarWhileGesture:Z
+
+    if-eqz v0, :cond_2
+
+    :cond_0
+    invoke-static {}, Lcom/android/server/policy/PolicyControl;->isGestureNavBarEnabled()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iput-boolean v3, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mWasGesture:Z
+
+    iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "navigation_bar_gesture_while_hidden"
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    :cond_1
+    :goto_0
+    return-void
+
+    :cond_2
+    iget-boolean v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mWasGesture:Z
+
+    if-eqz v0, :cond_1
+
+    iput-boolean v2, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mWasGesture:Z
+
+    iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "navigation_bar_gesture_while_hidden"
+
+    invoke-static {v0, v1, v3}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    goto :goto_0
+.end method
+
 .method private updatePowerSave()V
     .locals 1
 
@@ -6310,7 +6374,7 @@
 
     if-eqz v1, :cond_0
 
-    invoke-static {}, Lcom/android/server/policy/PolicyControl;->isForceImmersiveModeAndGestureEnabled()Z
+    invoke-static {}, Lcom/android/server/policy/PolicyControl;->isGestureNavBarEnabled()Z
 
     move-result v1
 
@@ -8954,6 +9018,101 @@
     return v0
 .end method
 
+.method public checkShowNavBarWhileGesture()V
+    .locals 5
+
+    const/4 v3, 0x0
+
+    invoke-static {}, Lcom/android/server/policy/PolicyControl;->isGestureNavBarEnabled()Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    iget-boolean v2, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mWasGesture:Z
+
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_0
+
+    return-void
+
+    :cond_0
+    iput-boolean v3, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mShowNavBarWhileGesture:Z
+
+    iget-object v2, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mPWM:Lcom/android/server/policy/PhoneWindowManager;
+
+    iget-object v2, v2, Lcom/android/server/policy/PhoneWindowManager;->mTopFullscreenOpaqueWindowState:Landroid/view/WindowManagerPolicy$WindowState;
+
+    if-eqz v2, :cond_1
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mPWM:Lcom/android/server/policy/PhoneWindowManager;
+
+    iget-object v3, v3, Lcom/android/server/policy/PhoneWindowManager;->mTopFullscreenOpaqueWindowState:Landroid/view/WindowManagerPolicy$WindowState;
+
+    invoke-interface {v3}, Landroid/view/WindowManagerPolicy$WindowState;->getOwningPackage()Ljava/lang/String;
+
+    move-result-object v3
+
+    const/16 v4, 0x80
+
+    invoke-virtual {v2, v3, v4}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    iget-object v2, v0, Landroid/content/pm/ApplicationInfo;->metaData:Landroid/os/Bundle;
+
+    if-eqz v2, :cond_1
+
+    iget-object v2, v0, Landroid/content/pm/ApplicationInfo;->metaData:Landroid/os/Bundle;
+
+    const-string/jumbo v3, "com.samsung.android.showNavBarWhileGesture"
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v2, v3, v4}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    const/4 v2, 0x1
+
+    iput-boolean v2, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mShowNavBarWhileGesture:Z
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_1
+    :goto_0
+    invoke-direct {p0}, Lcom/android/server/policy/SamsungPhoneWindowManager;->updateGestureNavBar()V
+
+    return-void
+
+    :catch_0
+    move-exception v1
+
+    sget-boolean v2, Lcom/android/server/policy/SamsungPhoneWindowManager;->SAFE_DEBUG:Z
+
+    if-eqz v2, :cond_1
+
+    const-string/jumbo v2, "SamsungPhoneWindowManager"
+
+    const-string/jumbo v3, "cannot check metadata"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+.end method
+
 .method public configureNavBarOpacity(ILandroid/view/WindowManagerPolicy$WindowState;)I
     .locals 1
 
@@ -10074,7 +10233,7 @@
 
     iget-boolean v5, v5, Lcom/samsung/android/cover/CoverState;->switchState:Z
 
-    if-nez v5, :cond_7
+    if-nez v5, :cond_8
 
     iget-object v5, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mCoverState:Lcom/samsung/android/cover/CoverState;
 
@@ -10082,13 +10241,13 @@
 
     const/16 v6, 0xff
 
-    if-eq v5, v6, :cond_7
+    if-eq v5, v6, :cond_8
 
     invoke-virtual {p0}, Lcom/android/server/policy/SamsungPhoneWindowManager;->isRingingOrOffhook()Z
 
     move-result v5
 
-    if-eqz v5, :cond_7
+    if-eqz v5, :cond_8
 
     invoke-virtual {p0}, Lcom/android/server/policy/SamsungPhoneWindowManager;->isTphoneRelaxMode()Z
 
@@ -10096,7 +10255,7 @@
 
     xor-int/lit8 v5, v5, 0x1
 
-    if-eqz v5, :cond_7
+    if-eqz v5, :cond_8
 
     :cond_1
     :try_start_0
@@ -10134,13 +10293,13 @@
     :goto_1
     iget-object v5, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mChangeRatioWindowTarget:Landroid/view/WindowManagerPolicy$WindowState;
 
-    if-eqz v5, :cond_a
+    if-eqz v5, :cond_b
 
     invoke-virtual {p0}, Lcom/android/server/policy/SamsungPhoneWindowManager;->allowChangeRatioWindow()Z
 
     move-result v5
 
-    if-eqz v5, :cond_a
+    if-eqz v5, :cond_b
 
     const/4 v4, 0x0
 
@@ -10174,7 +10333,7 @@
 
     iget v5, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mChangeRatioBarSize:I
 
-    if-nez v5, :cond_9
+    if-nez v5, :cond_a
 
     iget-object v5, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mSamsungWindowManager:Lcom/android/server/wm/IWindowManagerServiceBridge;
 
@@ -10196,13 +10355,20 @@
     invoke-virtual {v5}, Lcom/android/server/policy/NaviBarForceTouchManager;->dismissKeyguardByPendingRequest()V
 
     :cond_5
-    iget-boolean v5, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mWallpaperTargetMayChage:Z
+    sget-boolean v5, Lcom/samsung/android/framework/feature/NavigationBarFeatures;->SUPPORT_GESTURE_NAVIGATION_BAR:Z
 
     if-eqz v5, :cond_6
 
-    or-int/lit8 p1, p1, 0x4
+    invoke-virtual {p0}, Lcom/android/server/policy/SamsungPhoneWindowManager;->checkShowNavBarWhileGesture()V
 
     :cond_6
+    iget-boolean v5, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mWallpaperTargetMayChage:Z
+
+    if-eqz v5, :cond_7
+
+    or-int/lit8 p1, p1, 0x4
+
+    :cond_7
     return p1
 
     :catch_0
@@ -10212,11 +10378,11 @@
 
     goto :goto_0
 
-    :cond_7
+    :cond_8
     :try_start_1
     iget-boolean v5, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mLastCoverAppCovered:Z
 
-    if-eqz v5, :cond_8
+    if-eqz v5, :cond_9
 
     const/4 v5, 0x0
 
@@ -10226,7 +10392,7 @@
 
     and-int/lit8 v5, v3, 0x20
 
-    if-eqz v5, :cond_8
+    if-eqz v5, :cond_9
 
     const/4 v5, 0x0
 
@@ -10234,7 +10400,7 @@
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
 
-    :cond_8
+    :cond_9
     :goto_4
     invoke-virtual {p0, v3}, Lcom/android/server/policy/SamsungPhoneWindowManager;->processSViewCoverSetHiddenResultLw(I)Z
 
@@ -10304,7 +10470,7 @@
 
     goto :goto_2
 
-    :cond_9
+    :cond_a
     iget-object v5, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mSamsungWindowManager:Lcom/android/server/wm/IWindowManagerServiceBridge;
 
     iget-object v6, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mPWM:Lcom/android/server/policy/PhoneWindowManager;
@@ -10325,9 +10491,9 @@
 
     invoke-interface {v5, v6, v4, v7, v8}, Lcom/android/server/wm/IWindowManagerServiceBridge;->showChangeRatioButton(IILjava/lang/String;I)V
 
-    goto :goto_3
+    goto/16 :goto_3
 
-    :cond_a
+    :cond_b
     iget-object v5, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mSamsungWindowManager:Lcom/android/server/wm/IWindowManagerServiceBridge;
 
     invoke-interface {v5}, Lcom/android/server/wm/IWindowManagerServiceBridge;->hideChangeRatioButton()V
@@ -22317,7 +22483,7 @@
     goto :goto_0
 .end method
 
-.method synthetic lambda$-com_android_server_policy_SamsungPhoneWindowManager_429292()V
+.method synthetic lambda$-com_android_server_policy_SamsungPhoneWindowManager_429506()V
     .locals 2
 
     iget-boolean v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mWakeAndUnlockTriggered:Z
@@ -29212,6 +29378,23 @@
     const/4 v3, 0x0
 
     goto :goto_1
+.end method
+
+.method public setLockTaskModeState(I)V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    if-eqz p1, :cond_0
+
+    const/4 v0, 0x1
+
+    :cond_0
+    iput-boolean v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mWindowPinned:Z
+
+    invoke-direct {p0}, Lcom/android/server/policy/SamsungPhoneWindowManager;->updateGestureNavBar()V
+
+    return-void
 .end method
 
 .method public setProKioskReEnableVolumeUpKey(Z)V

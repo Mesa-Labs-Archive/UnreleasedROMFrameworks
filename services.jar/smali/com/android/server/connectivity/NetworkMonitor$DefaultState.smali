@@ -254,7 +254,11 @@
     move-result-object v12
 
     invoke-virtual {v11, v12}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
+    :goto_0
+    :try_start_1
     move-object/from16 v0, p0
 
     iget-object v11, v0, Lcom/android/server/connectivity/NetworkMonitor$DefaultState;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
@@ -272,10 +276,10 @@
     move-result-object v12
 
     invoke-virtual {v11, v12}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_1 .. :try_end_1} :catch_1
 
-    :goto_0
+    :goto_1
     move-object/from16 v0, p0
 
     iget-object v11, v0, Lcom/android/server/connectivity/NetworkMonitor$DefaultState;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
@@ -360,6 +364,37 @@
     invoke-virtual {v3}, Ljava/lang/IllegalArgumentException;->printStackTrace()V
 
     goto :goto_0
+
+    :catch_1
+    move-exception v3
+
+    invoke-static {}, Lcom/android/server/connectivity/NetworkMonitor;->-get1()Ljava/lang/String;
+
+    move-result-object v11
+
+    new-instance v12, Ljava/lang/StringBuilder;
+
+    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v13, "IllegalArgumentException: "
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    invoke-virtual {v12, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-static {v11, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {v3}, Ljava/lang/IllegalArgumentException;->printStackTrace()V
+
+    goto :goto_1
 
     :cond_2
     move-object/from16 v0, p0
@@ -509,7 +544,7 @@
 
     packed-switch v11, :pswitch_data_0
 
-    :goto_1
+    :goto_2
     move-object/from16 v0, p0
 
     iget-object v11, v0, Lcom/android/server/connectivity/NetworkMonitor$DefaultState;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
@@ -557,7 +592,7 @@
 
     invoke-static {v11, v12, v13}, Lcom/android/server/connectivity/NetworkMonitor;->-wrap11(Lcom/android/server/connectivity/NetworkMonitor;II)V
 
-    goto :goto_1
+    goto :goto_2
 
     :cond_4
     move-object/from16 v0, p0
@@ -572,7 +607,7 @@
 
     invoke-virtual {v11, v12, v13, v14}, Lcom/android/server/connectivity/NetworkMonitor;->sendMessage(III)V
 
-    goto :goto_1
+    goto :goto_2
 
     :pswitch_1
     move-object/from16 v0, p0
@@ -618,7 +653,7 @@
 
     invoke-virtual {v11, v12}, Lcom/android/server/connectivity/NetworkMonitor;->transitionTo(Lcom/android/internal/util/IState;)V
 
-    goto :goto_1
+    goto :goto_2
 
     :pswitch_2
     move-object/from16 v0, p0
@@ -707,7 +742,7 @@
 
     invoke-static {v11, v12, v13}, Lcom/android/server/connectivity/NetworkMonitor;->-wrap11(Lcom/android/server/connectivity/NetworkMonitor;II)V
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
     :cond_6
     move-object/from16 v0, p0
@@ -774,7 +809,7 @@
 
     invoke-virtual {v11, v12}, Lcom/android/server/connectivity/NetworkMonitor;->transitionTo(Lcom/android/internal/util/IState;)V
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
     :sswitch_4
     move-object/from16 v0, p0
@@ -966,7 +1001,7 @@
     packed-switch v9, :pswitch_data_1
 
     :cond_8
-    :goto_2
+    :goto_3
     const/4 v11, 0x1
 
     return v11
@@ -1050,7 +1085,7 @@
 
     invoke-virtual {v11, v12}, Lcom/android/server/connectivity/NetworkMonitor;->transitionTo(Lcom/android/internal/util/IState;)V
 
-    goto :goto_2
+    goto :goto_3
 
     :pswitch_4
     move-object/from16 v0, p0
@@ -1150,7 +1185,7 @@
 
     invoke-virtual {v11, v14, v12, v13}, Lcom/android/server/connectivity/NetworkMonitor;->sendMessageDelayed(IJ)V
 
-    goto/16 :goto_2
+    goto/16 :goto_3
 
     :pswitch_5
     move-object/from16 v0, p0
@@ -1300,7 +1335,7 @@
 
     invoke-virtual {v11, v12}, Lcom/android/server/connectivity/NetworkMonitor;->transitionTo(Lcom/android/internal/util/IState;)V
 
-    goto/16 :goto_2
+    goto/16 :goto_3
 
     :sswitch_6
     move-object/from16 v0, p1
@@ -1345,7 +1380,7 @@
 
     invoke-virtual {v11, v12}, Lcom/android/internal/util/AsyncChannel;->sendMessage(I)V
 
-    :goto_3
+    :goto_4
     const/4 v11, 0x1
 
     return v11
@@ -1379,7 +1414,7 @@
 
     invoke-static {v11, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_3
+    goto :goto_4
 
     :cond_c
     invoke-static {}, Lcom/android/server/connectivity/NetworkMonitor;->-get1()Ljava/lang/String;
@@ -1390,7 +1425,7 @@
 
     invoke-static {v11, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_3
+    goto :goto_4
 
     :sswitch_7
     move-object/from16 v0, p1
@@ -1409,7 +1444,7 @@
 
     invoke-static {v11, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    :goto_4
+    :goto_5
     move-object/from16 v0, p0
 
     iget-object v11, v0, Lcom/android/server/connectivity/NetworkMonitor$DefaultState;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
@@ -1451,7 +1486,7 @@
 
     invoke-static {v11, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_4
+    goto :goto_5
 
     :sswitch_8
     move-object/from16 v0, p0

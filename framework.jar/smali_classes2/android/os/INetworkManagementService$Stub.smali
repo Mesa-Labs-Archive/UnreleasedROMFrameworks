@@ -132,6 +132,8 @@
 
 .field static final TRANSACTION_getDnsForwarders:I = 0x1e
 
+.field static final TRANSACTION_getINAInfo:I = 0xaa
+
 .field static final TRANSACTION_getInterfaceConfig:I = 0x7
 
 .field static final TRANSACTION_getIpForwardingEnabled:I = 0x15
@@ -286,7 +288,7 @@
 
 .field static final TRANSACTION_setIpForwardingEnabled:I = 0x16
 
-.field static final TRANSACTION_setKnoxGuardExemptRule:I = 0xaa
+.field static final TRANSACTION_setKnoxGuardExemptRule:I = 0xab
 
 .field static final TRANSACTION_setMtu:I = 0x13
 
@@ -5777,6 +5779,29 @@
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    invoke-virtual/range {p0 .. p0}, Landroid/os/INetworkManagementService$Stub;->getINAInfo()[Ljava/lang/String;
+
+    move-result-object v53
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    move-object/from16 v0, p3
+
+    move-object/from16 v1, v53
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeStringArray([Ljava/lang/String;)V
+
+    const/4 v4, 0x1
+
+    return v4
+
+    :sswitch_ab
+    const-string/jumbo v4, "android.os.INetworkManagementService"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
@@ -5985,6 +6010,7 @@
         0xa8 -> :sswitch_a8
         0xa9 -> :sswitch_a9
         0xaa -> :sswitch_aa
+        0xab -> :sswitch_ab
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

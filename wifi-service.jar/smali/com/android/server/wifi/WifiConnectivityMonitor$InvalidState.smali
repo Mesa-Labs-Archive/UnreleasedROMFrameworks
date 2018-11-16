@@ -3367,7 +3367,21 @@
 
     move-object/from16 v32, v0
 
-    invoke-virtual/range {v32 .. v32}, Lcom/android/server/wifi/WifiConnectivityMonitor;->requestQualityCheck()V
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/wifi/WifiConnectivityMonitor$InvalidState;->this$0:Lcom/android/server/wifi/WifiConnectivityMonitor;
+
+    move-object/from16 v33, v0
+
+    invoke-static/range {v33 .. v33}, Lcom/android/server/wifi/WifiConnectivityMonitor;->-get81(Lcom/android/server/wifi/WifiConnectivityMonitor;)Lcom/android/server/wifi/WifiConnectivityMonitor$ParameterManager;
+
+    move-result-object v33
+
+    invoke-virtual/range {v33 .. v33}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    const/16 v33, 0x1
+
+    invoke-static/range {v32 .. v33}, Lcom/android/server/wifi/WifiConnectivityMonitor;->-wrap31(Lcom/android/server/wifi/WifiConnectivityMonitor;I)V
 
     goto/16 :goto_0
 
@@ -4247,6 +4261,8 @@
     invoke-static/range {v32 .. v33}, Lcom/android/server/wifi/WifiConnectivityMonitor;->-wrap47(Lcom/android/server/wifi/WifiConnectivityMonitor;Z)V
 
     goto/16 :goto_0
+
+    nop
 
     :sswitch_data_0
     .sparse-switch

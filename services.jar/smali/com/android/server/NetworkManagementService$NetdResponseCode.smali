@@ -23,6 +23,8 @@
 
 .field public static final DnsProxyQueryResult:I = 0xde
 
+.field public static final INAResult:I = 0xc6
+
 .field public static final InterfaceAddressChange:I = 0x266
 
 .field public static final InterfaceChange:I = 0x258

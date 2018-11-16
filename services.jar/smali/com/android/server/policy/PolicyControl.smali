@@ -150,7 +150,7 @@
 
     if-eqz v1, :cond_0
 
-    invoke-static {}, Lcom/android/server/policy/PolicyControl;->isGestureEnabled()Z
+    invoke-static {}, Lcom/android/server/policy/PolicyControl;->isGestureNavBarEnabled()Z
 
     move-result v1
 
@@ -382,7 +382,7 @@
 
     if-eqz v1, :cond_4
 
-    invoke-static {}, Lcom/android/server/policy/PolicyControl;->isForceImmersiveModeAndGestureEnabled()Z
+    invoke-static {}, Lcom/android/server/policy/PolicyControl;->isGestureNavBarEnabled()Z
 
     move-result v1
 
@@ -490,7 +490,7 @@
 
     if-eqz v1, :cond_0
 
-    invoke-static {}, Lcom/android/server/policy/PolicyControl;->isForceImmersiveModeAndGestureEnabled()Z
+    invoke-static {}, Lcom/android/server/policy/PolicyControl;->isGestureNavBarEnabled()Z
 
     move-result v1
 
@@ -516,25 +516,7 @@
     return v0
 .end method
 
-.method public static isForceImmersiveModeAndGestureEnabled()Z
-    .locals 1
-
-    sget-boolean v0, Lcom/android/server/policy/PolicyControl;->sForceImmersiveMode:Z
-
-    if-eqz v0, :cond_0
-
-    sget-boolean v0, Lcom/android/server/policy/PolicyControl;->sGestureNavBarEnabled:Z
-
-    :goto_0
-    return v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
-.method public static isGestureEnabled()Z
+.method public static isGestureNavBarEnabled()Z
     .locals 1
 
     sget-boolean v0, Lcom/android/server/policy/PolicyControl;->sGestureNavBarEnabled:Z
@@ -585,7 +567,7 @@
 
     if-eqz v0, :cond_0
 
-    invoke-static {}, Lcom/android/server/policy/PolicyControl;->isForceImmersiveModeAndGestureEnabled()Z
+    invoke-static {}, Lcom/android/server/policy/PolicyControl;->isGestureNavBarEnabled()Z
 
     move-result v0
 

@@ -308,7 +308,7 @@
     goto :goto_0
 .end method
 
-.method synthetic lambda$-com_android_server_AppOpsService$ClientRestrictionState_111967(I)V
+.method synthetic lambda$-com_android_server_AppOpsService$ClientRestrictionState_112123(I)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/AppOpsService$ClientRestrictionState;->this$0:Lcom/android/server/AppOpsService;

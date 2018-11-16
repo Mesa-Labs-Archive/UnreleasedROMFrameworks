@@ -21,7 +21,7 @@
 
     iget v1, p0, Lcom/android/server/-$Lambda$pxHDwRy_8WGgaOZHQ9e3tJlXPqU;->-$f0:I
 
-    invoke-virtual {v0, v1}, Lcom/android/server/AppOpsService$ClientRestrictionState;->lambda$-com_android_server_AppOpsService$ClientRestrictionState_111967(I)V
+    invoke-virtual {v0, v1}, Lcom/android/server/AppOpsService$ClientRestrictionState;->lambda$-com_android_server_AppOpsService$ClientRestrictionState_112123(I)V
 
     return-void
 .end method

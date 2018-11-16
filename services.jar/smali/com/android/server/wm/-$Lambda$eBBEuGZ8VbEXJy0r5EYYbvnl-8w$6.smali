@@ -23,7 +23,7 @@
 
     check-cast v1, Ljava/lang/Runnable;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/wm/WindowManagerService;->lambda$-com_android_server_wm_WindowManagerService_164210(Ljava/lang/Runnable;)V
+    invoke-virtual {v0, v1}, Lcom/android/server/wm/WindowManagerService;->lambda$-com_android_server_wm_WindowManagerService_164550(Ljava/lang/Runnable;)V
 
     return-void
 .end method

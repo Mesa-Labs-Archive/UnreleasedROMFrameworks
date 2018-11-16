@@ -24443,7 +24443,7 @@
     throw v6
 .end method
 
-.method static synthetic lambda$-com_android_server_am_ActivityManagerService_190756(Lcom/android/server/am/ActivityRecord;)V
+.method static synthetic lambda$-com_android_server_am_ActivityManagerService_190925(Lcom/android/server/am/ActivityRecord;)V
     .locals 2
 
     invoke-static {}, Lcom/android/server/desktopmode/DesktopModeService$Lifecycle;->getService()Lcom/android/server/desktopmode/DesktopModeService;
@@ -24457,7 +24457,7 @@
     return-void
 .end method
 
-.method static synthetic lambda$-com_android_server_am_ActivityManagerService_977668(Lcom/android/internal/os/ProcessCpuTracker$Stats;)Z
+.method static synthetic lambda$-com_android_server_am_ActivityManagerService_978401(Lcom/android/internal/os/ProcessCpuTracker$Stats;)Z
     .locals 4
 
     iget-wide v0, p0, Lcom/android/internal/os/ProcessCpuTracker$Stats;->vsize:J
@@ -85090,7 +85090,7 @@
     throw v0
 .end method
 
-.method synthetic lambda$-com_android_server_am_ActivityManagerService_469780(Lcom/android/server/am/ActivityRecord;Landroid/app/PictureInPictureParams;)V
+.method synthetic lambda$-com_android_server_am_ActivityManagerService_469949(Lcom/android/server/am/ActivityRecord;Landroid/app/PictureInPictureParams;)V
     .locals 8
 
     monitor-enter p0
@@ -107086,39 +107086,41 @@
 .end method
 
 .method startLockTaskModeLocked(Lcom/android/server/am/TaskRecord;)V
-    .locals 11
+    .locals 13
 
-    const/4 v9, 0x4
+    const/4 v10, 0x4
 
-    const/4 v7, 0x1
+    const/4 v7, 0x2
 
-    iget v8, p1, Lcom/android/server/am/TaskRecord;->mLockTaskAuth:I
+    const/4 v8, 0x1
 
-    if-nez v8, :cond_0
+    iget v9, p1, Lcom/android/server/am/TaskRecord;->mLockTaskAuth:I
+
+    if-nez v9, :cond_0
 
     return-void
 
     :cond_0
-    iget-object v8, p0, Lcom/android/server/am/ActivityManagerService;->mRestrictionPolicy:Lcom/samsung/android/knox/restriction/RestrictionPolicy;
+    iget-object v9, p0, Lcom/android/server/am/ActivityManagerService;->mRestrictionPolicy:Lcom/samsung/android/knox/restriction/RestrictionPolicy;
 
-    if-eqz v8, :cond_1
+    if-eqz v9, :cond_1
 
-    iget-object v8, p0, Lcom/android/server/am/ActivityManagerService;->mRestrictionPolicy:Lcom/samsung/android/knox/restriction/RestrictionPolicy;
+    iget-object v9, p0, Lcom/android/server/am/ActivityManagerService;->mRestrictionPolicy:Lcom/samsung/android/knox/restriction/RestrictionPolicy;
 
-    invoke-virtual {v8}, Lcom/samsung/android/knox/restriction/RestrictionPolicy;->isScreenPinningAllowed()Z
+    invoke-virtual {v9}, Lcom/samsung/android/knox/restriction/RestrictionPolicy;->isScreenPinningAllowed()Z
 
-    move-result v8
+    move-result v9
 
-    xor-int/lit8 v8, v8, 0x1
+    xor-int/lit8 v9, v9, 0x1
 
-    if-eqz v8, :cond_1
+    if-eqz v9, :cond_1
 
     return-void
 
     :cond_1
-    iget-object v8, p0, Lcom/android/server/am/ActivityManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
+    iget-object v9, p0, Lcom/android/server/am/ActivityManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
 
-    invoke-virtual {v8, v9}, Lcom/android/server/am/ActivityStackSupervisor;->getStack(I)Lcom/android/server/am/ActivityStack;
+    invoke-virtual {v9, v10}, Lcom/android/server/am/ActivityStackSupervisor;->getStack(I)Lcom/android/server/am/ActivityStack;
 
     move-result-object v4
 
@@ -107126,18 +107128,18 @@
 
     if-eqz v4, :cond_2
 
-    iget-object v8, p0, Lcom/android/server/am/ActivityManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
+    iget-object v9, p0, Lcom/android/server/am/ActivityManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
 
-    invoke-virtual {v8, v9}, Lcom/android/server/am/ActivityStackSupervisor;->removeStackLocked(I)V
+    invoke-virtual {v9, v10}, Lcom/android/server/am/ActivityStackSupervisor;->removeStackLocked(I)V
 
     :cond_2
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
     move-result v0
 
-    const/16 v8, 0x3e8
+    const/16 v9, 0x3e8
 
-    if-ne v0, v8, :cond_4
+    if-ne v0, v9, :cond_4
 
     const/4 v1, 0x1
 
@@ -107151,9 +107153,9 @@
     :try_start_0
     iput v0, p1, Lcom/android/server/am/TaskRecord;->mLockTaskUid:I
 
-    iget v8, p1, Lcom/android/server/am/TaskRecord;->mLockTaskAuth:I
+    iget v9, p1, Lcom/android/server/am/TaskRecord;->mLockTaskAuth:I
 
-    if-ne v8, v7, :cond_5
+    if-ne v9, v8, :cond_5
 
     const-class v7, Lcom/android/server/statusbar/StatusBarManagerInternal;
 
@@ -107183,9 +107185,9 @@
 
     :cond_5
     :try_start_1
-    iget-object v8, p0, Lcom/android/server/am/ActivityManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
+    iget-object v9, p0, Lcom/android/server/am/ActivityManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
 
-    invoke-virtual {v8}, Lcom/android/server/am/ActivityStackSupervisor;->getFocusedStack()Lcom/android/server/am/ActivityStack;
+    invoke-virtual {v9}, Lcom/android/server/am/ActivityStackSupervisor;->getFocusedStack()Lcom/android/server/am/ActivityStack;
 
     move-result-object v5
 
@@ -107193,9 +107195,9 @@
 
     invoke-virtual {v5}, Lcom/android/server/am/ActivityStack;->topTask()Lcom/android/server/am/TaskRecord;
 
-    move-result-object v8
+    move-result-object v9
 
-    if-eq p1, v8, :cond_7
+    if-eq p1, v9, :cond_7
 
     :cond_6
     new-instance v7, Ljava/lang/IllegalArgumentException;
@@ -107217,24 +107219,46 @@
 
     :cond_7
     :try_start_2
-    iget-object v8, p0, Lcom/android/server/am/ActivityManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
+    iget-object v10, p0, Lcom/android/server/am/ActivityManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_9
 
-    const/4 v7, 0x2
+    move v9, v7
 
-    :cond_8
-    const-string/jumbo v9, "startLockTask"
+    :goto_1
+    const-string/jumbo v11, "startLockTask"
 
-    const/4 v10, 0x1
+    const/4 v12, 0x1
 
-    invoke-virtual {v8, p1, v7, v9, v10}, Lcom/android/server/am/ActivityStackSupervisor;->setLockTaskModeLocked(Lcom/android/server/am/TaskRecord;ILjava/lang/String;Z)V
+    invoke-virtual {v10, p1, v9, v11, v12}, Lcom/android/server/am/ActivityStackSupervisor;->setLockTaskModeLocked(Lcom/android/server/am/TaskRecord;ILjava/lang/String;Z)V
+
+    sget-boolean v9, Lcom/samsung/android/framework/feature/NavigationBarFeatures;->SUPPORT_GESTURE_NAVIGATION_BAR:Z
+
+    if-eqz v9, :cond_8
+
+    iget-object v9, p0, Lcom/android/server/am/ActivityManagerService;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
+
+    if-eqz v1, :cond_a
+
+    :goto_2
+    invoke-virtual {v9, v7}, Lcom/android/server/wm/WindowManagerService;->setLockTaskModeState(I)V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
+    :cond_8
     invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     return-void
+
+    :cond_9
+    move v9, v8
+
+    goto :goto_1
+
+    :cond_a
+    move v7, v8
+
+    goto :goto_2
 .end method
 
 .method public startNextMatchingActivity(Landroid/os/IBinder;Landroid/content/Intent;Landroid/os/Bundle;)Z
@@ -110112,6 +110136,17 @@
 
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
 
+    sget-boolean v7, Lcom/samsung/android/framework/feature/NavigationBarFeatures;->SUPPORT_GESTURE_NAVIGATION_BAR:Z
+
+    if-eqz v7, :cond_4
+
+    iget-object v7, p0, Lcom/android/server/am/ActivityManagerService;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
+
+    const/4 v8, 0x0
+
+    invoke-virtual {v7, v8}, Lcom/android/server/wm/WindowManagerService;->setLockTaskModeState(I)V
+
+    :cond_4
     iget-object v7, p0, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
 
     const-string/jumbo v8, "telecom"
@@ -110122,7 +110157,7 @@
 
     check-cast v6, Landroid/telecom/TelecomManager;
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_5
 
     const/4 v7, 0x0
 
@@ -110130,7 +110165,7 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    :cond_4
+    :cond_5
     invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     return-void

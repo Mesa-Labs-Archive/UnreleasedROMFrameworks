@@ -17,7 +17,7 @@
 
     check-cast p1, Lcom/android/server/wm/WindowState;
 
-    invoke-static {v0, p1}, Lcom/android/server/wm/WindowManagerService;->lambda$-com_android_server_wm_WindowManagerService_371923(ZLcom/android/server/wm/WindowState;)V
+    invoke-static {v0, p1}, Lcom/android/server/wm/WindowManagerService;->lambda$-com_android_server_wm_WindowManagerService_372328(ZLcom/android/server/wm/WindowState;)V
 
     return-void
 .end method

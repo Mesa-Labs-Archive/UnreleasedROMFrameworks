@@ -2335,7 +2335,7 @@
     return v1
 .end method
 
-.method static synthetic lambda$-com_android_server_NetworkManagementService_22192(Ljava/lang/String;ZLandroid/net/INetworkManagementEventObserver;)V
+.method static synthetic lambda$-com_android_server_NetworkManagementService_22515(Ljava/lang/String;ZLandroid/net/INetworkManagementEventObserver;)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2348,7 +2348,7 @@
     return-void
 .end method
 
-.method static synthetic lambda$-com_android_server_NetworkManagementService_22499(Ljava/lang/String;ZLandroid/net/INetworkManagementEventObserver;)V
+.method static synthetic lambda$-com_android_server_NetworkManagementService_22822(Ljava/lang/String;ZLandroid/net/INetworkManagementEventObserver;)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2361,7 +2361,7 @@
     return-void
 .end method
 
-.method static synthetic lambda$-com_android_server_NetworkManagementService_22706(Ljava/lang/String;Landroid/net/INetworkManagementEventObserver;)V
+.method static synthetic lambda$-com_android_server_NetworkManagementService_23029(Ljava/lang/String;Landroid/net/INetworkManagementEventObserver;)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2374,7 +2374,7 @@
     return-void
 .end method
 
-.method static synthetic lambda$-com_android_server_NetworkManagementService_23091(Ljava/lang/String;Landroid/net/INetworkManagementEventObserver;)V
+.method static synthetic lambda$-com_android_server_NetworkManagementService_23414(Ljava/lang/String;Landroid/net/INetworkManagementEventObserver;)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2387,7 +2387,7 @@
     return-void
 .end method
 
-.method static synthetic lambda$-com_android_server_NetworkManagementService_23295(Ljava/lang/String;Ljava/lang/String;Landroid/net/INetworkManagementEventObserver;)V
+.method static synthetic lambda$-com_android_server_NetworkManagementService_23618(Ljava/lang/String;Ljava/lang/String;Landroid/net/INetworkManagementEventObserver;)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2400,7 +2400,7 @@
     return-void
 .end method
 
-.method static synthetic lambda$-com_android_server_NetworkManagementService_25511(IZJLandroid/net/INetworkManagementEventObserver;)V
+.method static synthetic lambda$-com_android_server_NetworkManagementService_25834(IZJLandroid/net/INetworkManagementEventObserver;)V
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2417,7 +2417,7 @@
     return-void
 .end method
 
-.method static synthetic lambda$-com_android_server_NetworkManagementService_33894(Ljava/lang/String;Landroid/net/LinkAddress;Landroid/net/INetworkManagementEventObserver;)V
+.method static synthetic lambda$-com_android_server_NetworkManagementService_34217(Ljava/lang/String;Landroid/net/LinkAddress;Landroid/net/INetworkManagementEventObserver;)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2430,7 +2430,7 @@
     return-void
 .end method
 
-.method static synthetic lambda$-com_android_server_NetworkManagementService_34122(Ljava/lang/String;Landroid/net/LinkAddress;Landroid/net/INetworkManagementEventObserver;)V
+.method static synthetic lambda$-com_android_server_NetworkManagementService_34445(Ljava/lang/String;Landroid/net/LinkAddress;Landroid/net/INetworkManagementEventObserver;)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2443,7 +2443,7 @@
     return-void
 .end method
 
-.method static synthetic lambda$-com_android_server_NetworkManagementService_34376(Ljava/lang/String;J[Ljava/lang/String;Landroid/net/INetworkManagementEventObserver;)V
+.method static synthetic lambda$-com_android_server_NetworkManagementService_34699(Ljava/lang/String;J[Ljava/lang/String;Landroid/net/INetworkManagementEventObserver;)V
     .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2456,7 +2456,7 @@
     return-void
 .end method
 
-.method static synthetic lambda$-com_android_server_NetworkManagementService_34649(Landroid/net/RouteInfo;Landroid/net/INetworkManagementEventObserver;)V
+.method static synthetic lambda$-com_android_server_NetworkManagementService_34972(Landroid/net/RouteInfo;Landroid/net/INetworkManagementEventObserver;)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2469,7 +2469,7 @@
     return-void
 .end method
 
-.method static synthetic lambda$-com_android_server_NetworkManagementService_34729(Landroid/net/RouteInfo;Landroid/net/INetworkManagementEventObserver;)V
+.method static synthetic lambda$-com_android_server_NetworkManagementService_35052(Landroid/net/RouteInfo;Landroid/net/INetworkManagementEventObserver;)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -8977,6 +8977,48 @@
         :pswitch_0
         :pswitch_2
     .end packed-switch
+.end method
+
+.method public getINAInfo()[Ljava/lang/String;
+    .locals 6
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/server/NetworkManagementService;->mConnector:Lcom/android/server/NativeDaemonConnector;
+
+    const-string/jumbo v2, "resolver"
+
+    const/4 v3, 0x1
+
+    new-array v3, v3, [Ljava/lang/Object;
+
+    const-string/jumbo v4, "inainfo"
+
+    const/4 v5, 0x0
+
+    aput-object v4, v3, v5
+
+    invoke-virtual {v1, v2, v3}, Lcom/android/server/NativeDaemonConnector;->executeForList(Ljava/lang/String;[Ljava/lang/Object;)[Lcom/android/server/NativeDaemonEvent;
+
+    move-result-object v1
+
+    const/16 v2, 0xc6
+
+    invoke-static {v1, v2}, Lcom/android/server/NativeDaemonEvent;->filterMessageList([Lcom/android/server/NativeDaemonEvent;I)[Ljava/lang/String;
+    :try_end_0
+    .catch Lcom/android/server/NativeDaemonConnectorException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    return-object v1
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Lcom/android/server/NativeDaemonConnectorException;->rethrowAsParcelableException()Ljava/lang/IllegalArgumentException;
+
+    move-result-object v1
+
+    throw v1
 .end method
 
 .method getInjector()Lcom/android/server/NetworkManagementService$Injector;

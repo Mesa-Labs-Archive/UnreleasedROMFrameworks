@@ -17,7 +17,7 @@
 
     check-cast v0, Lcom/android/server/policy/PhoneWindowManager;
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/policy/PhoneWindowManager;->lambda$-com_android_server_policy_PhoneWindowManager_248649(Landroid/view/InputChannel;Landroid/os/Looper;)Landroid/view/InputEventReceiver;
+    invoke-virtual {v0, p1, p2}, Lcom/android/server/policy/PhoneWindowManager;->lambda$-com_android_server_policy_PhoneWindowManager_248619(Landroid/view/InputChannel;Landroid/os/Looper;)Landroid/view/InputEventReceiver;
 
     move-result-object v0
 

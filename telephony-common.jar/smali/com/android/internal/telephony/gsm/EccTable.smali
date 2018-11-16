@@ -136,6 +136,20 @@
 
     new-instance v1, Lcom/android/internal/telephony/gsm/EccTable$EccEntry;
 
+    const-string/jumbo v2, "262"
+
+    const-string/jumbo v3, "112,911,110"
+
+    const-string/jumbo v4, "112,911,999,000,08,118,119,110"
+
+    invoke-direct {v1, v2, v3, v4}, Lcom/android/internal/telephony/gsm/EccTable$EccEntry;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Lcom/android/internal/telephony/gsm/EccTable;->table:Ljava/util/ArrayList;
+
+    new-instance v1, Lcom/android/internal/telephony/gsm/EccTable$EccEntry;
+
     const-string/jumbo v2, "272"
 
     const-string/jumbo v3, "112,911,999"

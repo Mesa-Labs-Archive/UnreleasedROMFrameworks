@@ -41,7 +41,7 @@
 
     check-cast v5, Landroid/view/WindowManagerPolicy;
 
-    invoke-static/range {v0 .. v5}, Lcom/android/server/wm/WindowManagerService;->lambda$-com_android_server_wm_WindowManagerService_49639(Landroid/content/Context;Lcom/android/server/input/InputManagerService;ZZZLandroid/view/WindowManagerPolicy;)V
+    invoke-static/range {v0 .. v5}, Lcom/android/server/wm/WindowManagerService;->lambda$-com_android_server_wm_WindowManagerService_49739(Landroid/content/Context;Lcom/android/server/input/InputManagerService;ZZZLandroid/view/WindowManagerPolicy;)V
 
     return-void
 .end method

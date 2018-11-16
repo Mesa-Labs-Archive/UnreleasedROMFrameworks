@@ -17,7 +17,7 @@
 
     check-cast v0, Lcom/android/server/wm/WindowManagerService;
 
-    invoke-virtual {v0}, Lcom/android/server/wm/WindowManagerService;->lambda$-com_android_server_wm_WindowManagerService_310447()V
+    invoke-virtual {v0}, Lcom/android/server/wm/WindowManagerService;->lambda$-com_android_server_wm_WindowManagerService_310787()V
 
     return-void
 .end method

@@ -796,7 +796,7 @@
 
     if-eqz p1, :cond_1
 
-    invoke-static {}, Lcom/android/server/policy/PolicyControl;->isForceImmersiveModeAndGestureEnabled()Z
+    invoke-static {}, Lcom/android/server/policy/PolicyControl;->isGestureNavBarEnabled()Z
 
     move-result v5
 

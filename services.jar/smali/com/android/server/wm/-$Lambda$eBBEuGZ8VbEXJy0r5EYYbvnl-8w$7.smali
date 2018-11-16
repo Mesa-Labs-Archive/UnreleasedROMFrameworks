@@ -23,7 +23,7 @@
 
     check-cast v1, Lcom/android/internal/app/IAssistScreenshotReceiver;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/wm/WindowManagerService;->lambda$-com_android_server_wm_WindowManagerService_195747(Lcom/android/internal/app/IAssistScreenshotReceiver;)V
+    invoke-virtual {v0, v1}, Lcom/android/server/wm/WindowManagerService;->lambda$-com_android_server_wm_WindowManagerService_196087(Lcom/android/internal/app/IAssistScreenshotReceiver;)V
 
     return-void
 .end method

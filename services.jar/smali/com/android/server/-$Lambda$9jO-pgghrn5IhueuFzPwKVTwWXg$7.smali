@@ -27,7 +27,7 @@
 
     check-cast v1, [Ljava/lang/String;
 
-    invoke-static {v0, v2, v3, v1, p1}, Lcom/android/server/NetworkManagementService;->lambda$-com_android_server_NetworkManagementService_34376(Ljava/lang/String;J[Ljava/lang/String;Landroid/net/INetworkManagementEventObserver;)V
+    invoke-static {v0, v2, v3, v1, p1}, Lcom/android/server/NetworkManagementService;->lambda$-com_android_server_NetworkManagementService_34699(Ljava/lang/String;J[Ljava/lang/String;Landroid/net/INetworkManagementEventObserver;)V
 
     return-void
 .end method

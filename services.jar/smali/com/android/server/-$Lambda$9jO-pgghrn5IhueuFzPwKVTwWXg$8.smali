@@ -21,7 +21,7 @@
 
     iget-boolean v1, p0, Lcom/android/server/-$Lambda$9jO-pgghrn5IhueuFzPwKVTwWXg$8;->-$f0:Z
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/NetworkManagementService;->lambda$-com_android_server_NetworkManagementService_22499(Ljava/lang/String;ZLandroid/net/INetworkManagementEventObserver;)V
+    invoke-static {v0, v1, p1}, Lcom/android/server/NetworkManagementService;->lambda$-com_android_server_NetworkManagementService_22822(Ljava/lang/String;ZLandroid/net/INetworkManagementEventObserver;)V
 
     return-void
 .end method

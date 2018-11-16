@@ -17,7 +17,7 @@
 
     check-cast v0, Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    invoke-virtual {v0}, Lcom/android/server/policy/SamsungPhoneWindowManager;->lambda$-com_android_server_policy_SamsungPhoneWindowManager_429292()V
+    invoke-virtual {v0}, Lcom/android/server/policy/SamsungPhoneWindowManager;->lambda$-com_android_server_policy_SamsungPhoneWindowManager_429506()V
 
     return-void
 .end method

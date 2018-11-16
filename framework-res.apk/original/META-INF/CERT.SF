@@ -1,6 +1,6 @@
 Signature-Version: 1.0
 X-Android-APK-Signed: 2
-SHA-256-Digest-Manifest: 9cyS7clAiirTNAEeZjl+57v2Rpno9Yy1CoJuuPZqQLk=
+SHA-256-Digest-Manifest: J9M77pZnXLSulbkRjREftz8z5qg7INHrRWzZ6jpAiqA=
 Created-By: 1.0 (Android SignApk)
 
 Name: res/drawable-xxhdpi-v4/btn_radio_on_holo.png
@@ -5156,7 +5156,7 @@ Name: res/raw/ssrm_degasy18wifi_xx.xml
 SHA-256-Digest: pIhU0iHqk7pOj9VpXzEkWIRIBbr3E5tgAdAYM7P2h+4=
 
 Name: SEC-INF/buildinfo.xml
-SHA-256-Digest: Up+fc+mPQgDHVitm8pVRqTEnVsdmK7ODbnG+Pb3Ovv4=
+SHA-256-Digest: 9zbLkc+kDeTSXsaRpQaa/yMBKkung65lJDjDASTAAdA=
 
 Name: res/drawable-xxhdpi-v4/rate_star_med_off_holo_dark.png
 SHA-256-Digest: O1MU1rvXK4JDeFWvePGQqTJkXKxtrmoK0GFLuB7+MtI=

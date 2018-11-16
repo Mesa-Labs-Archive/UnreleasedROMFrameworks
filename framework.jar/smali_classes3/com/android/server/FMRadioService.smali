@@ -2881,7 +2881,7 @@
 
     const/16 v4, 0xa
 
-    if-ne v3, v4, :cond_d
+    if-ne v3, v4, :cond_e
 
     :cond_3
     :goto_0
@@ -2934,10 +2934,10 @@
 
     const/4 v4, 0x6
 
-    if-ne v3, v4, :cond_e
+    if-ne v3, v4, :cond_f
 
     :cond_7
-    if-ne p1, v10, :cond_e
+    if-ne p1, v10, :cond_f
 
     iget-object v3, p0, Lcom/android/server/FMRadioService;->mPlayerNative:Lcom/android/server/FMPlayerNativeBase;
 
@@ -3017,11 +3017,16 @@
 
     invoke-virtual {p0, v4, v3}, Lcom/android/server/FMRadioService;->notifyEvent(ILjava/lang/Object;)V
 
+    iget-boolean v3, p0, Lcom/android/server/FMRadioService;->mIsForcestop:Z
+
+    if-nez v3, :cond_b
+
     invoke-direct {p0}, Lcom/android/server/FMRadioService;->sendFMOFFBroadcast()V
 
+    :cond_b
     iget-object v3, p0, Lcom/android/server/FMRadioService;->platform:Ljava/lang/String;
 
-    if-eqz v3, :cond_f
+    if-eqz v3, :cond_10
 
     iget-object v3, p0, Lcom/android/server/FMRadioService;->platform:Ljava/lang/String;
 
@@ -3031,7 +3036,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_b
+    if-nez v3, :cond_c
 
     iget-object v3, p0, Lcom/android/server/FMRadioService;->platform:Ljava/lang/String;
 
@@ -3041,7 +3046,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_b
+    if-nez v3, :cond_c
 
     iget-object v3, p0, Lcom/android/server/FMRadioService;->platform:Ljava/lang/String;
 
@@ -3051,9 +3056,9 @@
 
     move-result v3
 
-    if-eqz v3, :cond_f
+    if-eqz v3, :cond_10
 
-    :cond_b
+    :cond_c
     invoke-direct {p0}, Lcom/android/server/FMRadioService;->openFile()V
 
     iget-boolean v3, p0, Lcom/android/server/FMRadioService;->mIsOn:Z
@@ -3065,7 +3070,7 @@
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    :cond_c
+    :cond_d
     :goto_2
     :try_start_2
     invoke-direct {p0}, Lcom/android/server/FMRadioService;->releaseWakeLock()V
@@ -3076,7 +3081,7 @@
 
     return v9
 
-    :cond_d
+    :cond_e
     :try_start_3
     sget v3, Lcom/android/server/FMRadioServiceFeature;->CHIP_VENDOR:I
 
@@ -3084,7 +3089,7 @@
 
     goto/16 :goto_0
 
-    :cond_e
+    :cond_f
     iget-object v3, p0, Lcom/android/server/FMRadioService;->mPlayerNative:Lcom/android/server/FMPlayerNativeBase;
 
     invoke-virtual {v3}, Lcom/android/server/FMPlayerNativeBase;->off()V
@@ -3111,7 +3116,7 @@
 
     return v7
 
-    :cond_f
+    :cond_10
     :try_start_6
     iget-object v3, p0, Lcom/android/server/FMRadioService;->mContext:Landroid/content/Context;
 
@@ -3130,9 +3135,9 @@
     .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_0
     .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
-    if-eq v3, v4, :cond_c
+    if-eq v3, v4, :cond_d
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_d
 
     :try_start_7
     const-string/jumbo v3, "com.sec.android.app.fm"

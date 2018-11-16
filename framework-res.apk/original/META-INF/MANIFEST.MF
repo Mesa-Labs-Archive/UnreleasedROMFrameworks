@@ -5154,7 +5154,7 @@ Name: res/raw/ssrm_degasy18wifi_xx.xml
 SHA-256-Digest: r2bGQ92Hfqp9L12tpys6xwM1Cq5cWST2ZoV3UkJLbt8=
 
 Name: SEC-INF/buildinfo.xml
-SHA-256-Digest: Aghix4oiQRSTOOeDXWwNlDhh+L2nkV2WbW3TzYHV4kw=
+SHA-256-Digest: bBYZhWu7Zvh9+2TLLUElJKKlKRghew7duIqWlnssOxE=
 
 Name: res/drawable-xxhdpi-v4/rate_star_med_off_holo_dark.png
 SHA-256-Digest: xBqAm+bGr5LTwf2KSgfvm2u5vcd3uW9TDWrMRs96PtQ=

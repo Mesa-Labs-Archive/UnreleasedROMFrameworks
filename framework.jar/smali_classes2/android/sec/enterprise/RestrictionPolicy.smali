@@ -199,7 +199,7 @@
 
     sput-object v0, Landroid/sec/enterprise/RestrictionPolicy;->settingsExceptions:[Ljava/lang/String;
 
-    const/16 v0, 0x9
+    const/16 v0, 0xa
 
     new-array v0, v0, [Ljava/lang/String;
 
@@ -244,6 +244,12 @@
     const-string/jumbo v1, "com.samsung.android.samsungpass"
 
     const/16 v2, 0x8
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "com.samsung.android.spay"
+
+    const/16 v2, 0x9
 
     aput-object v1, v0, v2
 

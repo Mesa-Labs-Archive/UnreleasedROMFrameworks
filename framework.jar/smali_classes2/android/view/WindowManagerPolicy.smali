@@ -964,6 +964,9 @@
 .method public abstract setLastInputMethodWindowLw(Landroid/view/WindowManagerPolicy$WindowState;Landroid/view/WindowManagerPolicy$WindowState;)V
 .end method
 
+.method public abstract setLockTaskModeState(I)V
+.end method
+
 .method public abstract setPipVisibilityLw(Z)V
 .end method
 

@@ -99,7 +99,7 @@
 
     move v5, p4
 
-    invoke-static/range {v0 .. v6}, Landroid/text/Layout;->-wrap0(Landroid/text/Layout;III[CILandroid/text/TextUtils$TruncateAt;)V
+    invoke-static/range {v0 .. v6}, Landroid/text/Layout;->-wrap2(Landroid/text/Layout;III[CILandroid/text/TextUtils$TruncateAt;)V
 
     add-int/lit8 v3, v3, 0x1
 

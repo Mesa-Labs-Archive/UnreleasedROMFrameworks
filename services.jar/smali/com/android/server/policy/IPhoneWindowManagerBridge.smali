@@ -97,6 +97,9 @@
 .method public abstract changeNavigationBarHeight(I)V
 .end method
 
+.method public abstract checkShowNavBarWhileGesture()V
+.end method
+
 .method public abstract configureNavBarOpacity(ILandroid/view/WindowManagerPolicy$WindowState;)I
 .end method
 
@@ -452,6 +455,9 @@
 .end method
 
 .method public abstract setInitialDisplaySize(IIIIII)V
+.end method
+
+.method public abstract setLockTaskModeState(I)V
 .end method
 
 .method public abstract setRotationLw(I)V

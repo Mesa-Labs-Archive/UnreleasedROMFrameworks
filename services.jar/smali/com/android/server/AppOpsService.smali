@@ -10621,6 +10621,8 @@
 
     check-cast v25, Lcom/android/server/AppOpsService$UidState;
 
+    if-eqz v25, :cond_1
+
     move-object/from16 v0, v25
 
     iget-object v0, v0, Lcom/android/server/AppOpsService$UidState;->opModes:Landroid/util/SparseIntArray;
@@ -10829,7 +10831,7 @@
     goto/16 :goto_0
 
     :cond_2
-    if-eqz v4, :cond_f
+    if-eqz v4, :cond_11
 
     const/4 v10, 0x0
 
@@ -10842,7 +10844,7 @@
 
     move/from16 v0, v27
 
-    if-ge v7, v0, :cond_e
+    if-ge v7, v0, :cond_10
 
     invoke-interface {v4, v7}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -10850,6 +10852,21 @@
 
     check-cast v18, Landroid/app/AppOpsManager$PackageOps;
 
+    if-eqz v18, :cond_3
+
+    invoke-virtual/range {v18 .. v18}, Landroid/app/AppOpsManager$PackageOps;->getPackageName()Ljava/lang/String;
+
+    move-result-object v27
+
+    if-nez v27, :cond_4
+
+    :cond_3
+    :goto_3
+    add-int/lit8 v7, v7, 0x1
+
+    goto :goto_2
+
+    :cond_4
     invoke-virtual/range {v18 .. v18}, Landroid/app/AppOpsManager$PackageOps;->getPackageName()Ljava/lang/String;
 
     move-result-object v27
@@ -10860,9 +10877,9 @@
 
     move-result v27
 
-    if-nez v27, :cond_4
+    if-nez v27, :cond_6
 
-    if-eqz v10, :cond_3
+    if-eqz v10, :cond_5
 
     const-string/jumbo v27, "pkg"
 
@@ -10876,7 +10893,7 @@
 
     invoke-interface {v0, v1, v2}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    :cond_3
+    :cond_5
     invoke-virtual/range {v18 .. v18}, Landroid/app/AppOpsManager$PackageOps;->getPackageName()Ljava/lang/String;
 
     move-result-object v10
@@ -10905,7 +10922,7 @@
 
     invoke-interface {v0, v1, v2, v10}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    :cond_4
+    :cond_6
     const-string/jumbo v27, "uid"
 
     const/16 v29, 0x0
@@ -10968,7 +10985,7 @@
 
     move-result-object v15
 
-    if-eqz v15, :cond_c
+    if-eqz v15, :cond_e
 
     const-string/jumbo v27, "p"
 
@@ -10994,7 +11011,7 @@
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
-    :goto_3
+    :goto_4
     :try_start_6
     monitor-exit p0
 
@@ -11004,14 +11021,14 @@
 
     const/4 v8, 0x0
 
-    :goto_4
+    :goto_5
     invoke-interface/range {v16 .. v16}, Ljava/util/List;->size()I
 
     move-result v27
 
     move/from16 v0, v27
 
-    if-ge v8, v0, :cond_d
+    if-ge v8, v0, :cond_f
 
     move-object/from16 v0, v16
 
@@ -11071,7 +11088,7 @@
 
     move/from16 v1, v29
 
-    if-eq v0, v1, :cond_5
+    if-eq v0, v1, :cond_7
 
     const-string/jumbo v27, "m"
 
@@ -11095,7 +11112,7 @@
 
     invoke-interface {v0, v1, v2, v3}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    :cond_5
+    :cond_7
     invoke-virtual {v13}, Landroid/app/AppOpsManager$OpEntry;->getTime()J
 
     move-result-wide v22
@@ -11104,7 +11121,7 @@
 
     cmp-long v27, v22, v30
 
-    if-eqz v27, :cond_6
+    if-eqz v27, :cond_8
 
     const-string/jumbo v27, "t"
 
@@ -11124,7 +11141,7 @@
 
     invoke-interface {v0, v1, v2, v3}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    :cond_6
+    :cond_8
     invoke-virtual {v13}, Landroid/app/AppOpsManager$OpEntry;->getRejectTime()J
 
     move-result-wide v22
@@ -11133,7 +11150,7 @@
 
     cmp-long v27, v22, v30
 
-    if-eqz v27, :cond_7
+    if-eqz v27, :cond_9
 
     const-string/jumbo v27, "r"
 
@@ -11153,12 +11170,12 @@
 
     invoke-interface {v0, v1, v2, v3}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    :cond_7
+    :cond_9
     invoke-virtual {v13}, Landroid/app/AppOpsManager$OpEntry;->getDuration()I
 
     move-result v5
 
-    if-eqz v5, :cond_8
+    if-eqz v5, :cond_a
 
     const-string/jumbo v27, "d"
 
@@ -11178,7 +11195,7 @@
 
     invoke-interface {v0, v1, v2, v3}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    :cond_8
+    :cond_a
     invoke-virtual {v13}, Landroid/app/AppOpsManager$OpEntry;->getProxyUid()I
 
     move-result v20
@@ -11189,7 +11206,7 @@
 
     move/from16 v1, v27
 
-    if-eq v0, v1, :cond_9
+    if-eq v0, v1, :cond_b
 
     const-string/jumbo v27, "pu"
 
@@ -11209,12 +11226,12 @@
 
     invoke-interface {v0, v1, v2, v3}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    :cond_9
+    :cond_b
     invoke-virtual {v13}, Landroid/app/AppOpsManager$OpEntry;->getProxyPackageName()Ljava/lang/String;
 
     move-result-object v19
 
-    if-eqz v19, :cond_a
+    if-eqz v19, :cond_c
 
     const-string/jumbo v27, "pp"
 
@@ -11230,12 +11247,12 @@
 
     invoke-interface {v0, v1, v2, v3}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    :cond_a
+    :cond_c
     invoke-virtual {v13}, Landroid/app/AppOpsManager$OpEntry;->getLastAccessPackage()Ljava/lang/String;
 
     move-result-object v9
 
-    if-eqz v9, :cond_b
+    if-eqz v9, :cond_d
 
     const-string/jumbo v27, "lpkg"
 
@@ -11249,7 +11266,7 @@
 
     invoke-interface {v0, v1, v2, v9}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    :cond_b
+    :cond_d
     const-string/jumbo v27, "op"
 
     const/16 v29, 0x0
@@ -11267,9 +11284,9 @@
 
     add-int/lit8 v8, v8, 0x1
 
-    goto/16 :goto_4
+    goto/16 :goto_5
 
-    :cond_c
+    :cond_e
     :try_start_7
     const-string/jumbo v27, "p"
 
@@ -11293,7 +11310,7 @@
     :try_end_7
     .catchall {:try_start_7 .. :try_end_7} :catchall_0
 
-    goto/16 :goto_3
+    goto/16 :goto_4
 
     :catchall_0
     move-exception v27
@@ -11334,12 +11351,12 @@
     :try_end_9
     .catchall {:try_start_9 .. :try_end_9} :catchall_1
 
-    :goto_5
+    :goto_6
     monitor-exit v28
 
     return-void
 
-    :cond_d
+    :cond_f
     :try_start_a
     const-string/jumbo v27, "uid"
 
@@ -11352,14 +11369,23 @@
     move-object/from16 v2, v27
 
     invoke-interface {v0, v1, v2}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    :try_end_a
+    .catch Ljava/io/IOException; {:try_start_a .. :try_end_a} :catch_1
+    .catchall {:try_start_a .. :try_end_a} :catchall_1
 
-    add-int/lit8 v7, v7, 0x1
+    goto/16 :goto_3
 
-    goto/16 :goto_2
+    :catchall_1
+    move-exception v27
 
-    :cond_e
-    if-eqz v10, :cond_f
+    monitor-exit v28
 
+    throw v27
+
+    :cond_10
+    if-eqz v10, :cond_11
+
+    :try_start_b
     const-string/jumbo v27, "pkg"
 
     const/16 v29, 0x0
@@ -11372,7 +11398,7 @@
 
     invoke-interface {v0, v1, v2}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    :cond_f
+    :cond_11
     const-string/jumbo v27, "app-ops"
 
     const/16 v29, 0x0
@@ -11398,16 +11424,9 @@
     move-object/from16 v1, v21
 
     invoke-virtual {v0, v1}, Landroid/util/AtomicFile;->finishWrite(Ljava/io/FileOutputStream;)V
-    :try_end_a
-    .catch Ljava/io/IOException; {:try_start_a .. :try_end_a} :catch_1
-    .catchall {:try_start_a .. :try_end_a} :catchall_1
+    :try_end_b
+    .catch Ljava/io/IOException; {:try_start_b .. :try_end_b} :catch_1
+    .catchall {:try_start_b .. :try_end_b} :catchall_1
 
-    goto :goto_5
-
-    :catchall_1
-    move-exception v27
-
-    monitor-exit v28
-
-    throw v27
+    goto :goto_6
 .end method

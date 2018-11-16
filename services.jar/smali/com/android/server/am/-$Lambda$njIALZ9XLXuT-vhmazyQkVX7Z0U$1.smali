@@ -9,7 +9,7 @@
 .method private final synthetic $m$0(Lcom/android/internal/os/ProcessCpuTracker$Stats;)Z
     .locals 1
 
-    invoke-static {p1}, Lcom/android/server/am/ActivityManagerService;->lambda$-com_android_server_am_ActivityManagerService_977668(Lcom/android/internal/os/ProcessCpuTracker$Stats;)Z
+    invoke-static {p1}, Lcom/android/server/am/ActivityManagerService;->lambda$-com_android_server_am_ActivityManagerService_978401(Lcom/android/internal/os/ProcessCpuTracker$Stats;)Z
 
     move-result v0
 

@@ -246,9 +246,9 @@
 
     move-result-object v12
 
-    const-string/jumbo v15, "VirtualTourDataManager"
-
     const/4 v14, 0x0
+
+    const-string/jumbo v15, "VirtualTourDataManager"
 
     invoke-interface {v12, v14}, Lorg/w3c/dom/NodeList;->item(I)Lorg/w3c/dom/Node;
 
@@ -2502,11 +2502,11 @@
 
     move-result-object v2
 
-    const/4 v3, 0x0
+    const/4 v3, 0x4
 
-    const/4 v6, 0x4
+    const/4 v6, 0x0
 
-    invoke-virtual {v14, v2, v3, v6}, Ljava/io/FileOutputStream;->write([BII)V
+    invoke-virtual {v14, v2, v6, v3}, Ljava/io/FileOutputStream;->write([BII)V
 
     const/4 v2, 0x4
 
@@ -2524,11 +2524,11 @@
 
     move-result-object v2
 
-    const/4 v3, 0x0
+    const/4 v3, 0x4
 
-    const/4 v6, 0x4
+    const/4 v6, 0x0
 
-    invoke-virtual {v14, v2, v3, v6}, Ljava/io/FileOutputStream;->write([BII)V
+    invoke-virtual {v14, v2, v6, v3}, Ljava/io/FileOutputStream;->write([BII)V
 
     const/4 v2, 0x4
 
@@ -2546,11 +2546,11 @@
 
     move-result-object v2
 
-    const/4 v3, 0x0
+    const/4 v3, 0x4
 
-    const/4 v6, 0x4
+    const/4 v6, 0x0
 
-    invoke-virtual {v14, v2, v3, v6}, Ljava/io/FileOutputStream;->write([BII)V
+    invoke-virtual {v14, v2, v6, v3}, Ljava/io/FileOutputStream;->write([BII)V
 
     const/4 v2, 0x4
 
@@ -2566,11 +2566,11 @@
 
     move-result-object v2
 
-    const/4 v3, 0x0
+    const/4 v3, 0x4
 
-    const/4 v6, 0x4
+    const/4 v6, 0x0
 
-    invoke-virtual {v14, v2, v3, v6}, Ljava/io/FileOutputStream;->write([BII)V
+    invoke-virtual {v14, v2, v6, v3}, Ljava/io/FileOutputStream;->write([BII)V
 
     const/4 v2, 0x4
 
@@ -2586,11 +2586,11 @@
 
     move-result-object v2
 
-    const/4 v3, 0x0
+    const/4 v3, 0x4
 
-    const/4 v6, 0x4
+    const/4 v6, 0x0
 
-    invoke-virtual {v14, v2, v3, v6}, Ljava/io/FileOutputStream;->write([BII)V
+    invoke-virtual {v14, v2, v6, v3}, Ljava/io/FileOutputStream;->write([BII)V
 
     const/16 v18, 0x0
 
@@ -2825,11 +2825,11 @@
 
     move-result-object v2
 
-    const/4 v3, 0x0
+    const/4 v3, 0x4
 
-    const/4 v6, 0x4
+    const/4 v6, 0x0
 
-    invoke-virtual {v14, v2, v3, v6}, Ljava/io/FileOutputStream;->write([BII)V
+    invoke-virtual {v14, v2, v6, v3}, Ljava/io/FileOutputStream;->write([BII)V
 
     const/4 v2, 0x1
 
@@ -2856,11 +2856,11 @@
 
     move-result-object v2
 
-    const/4 v3, 0x0
+    const/4 v3, 0x4
 
-    const/4 v6, 0x4
+    const/4 v6, 0x0
 
-    invoke-virtual {v14, v2, v3, v6}, Ljava/io/FileOutputStream;->write([BII)V
+    invoke-virtual {v14, v2, v6, v3}, Ljava/io/FileOutputStream;->write([BII)V
 
     :goto_a
     add-int/lit8 v18, v18, 0x1
@@ -2899,11 +2899,11 @@
 
     move-result-object v2
 
-    const/4 v3, 0x0
+    const/4 v3, 0x4
 
-    const/4 v6, 0x4
+    const/4 v6, 0x0
 
-    invoke-virtual {v14, v2, v3, v6}, Ljava/io/FileOutputStream;->write([BII)V
+    invoke-virtual {v14, v2, v6, v3}, Ljava/io/FileOutputStream;->write([BII)V
     :try_end_4
     .catch Ljava/io/FileNotFoundException; {:try_start_4 .. :try_end_4} :catch_0
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_2
@@ -2956,11 +2956,11 @@
 
     move-result-object v2
 
-    const/4 v3, 0x0
+    const/4 v3, 0x4
 
-    const/4 v6, 0x4
+    const/4 v6, 0x0
 
-    invoke-virtual {v14, v2, v3, v6}, Ljava/io/FileOutputStream;->write([BII)V
+    invoke-virtual {v14, v2, v6, v3}, Ljava/io/FileOutputStream;->write([BII)V
     :try_end_7
     .catch Ljava/io/FileNotFoundException; {:try_start_7 .. :try_end_7} :catch_0
     .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_2
@@ -3026,11 +3026,11 @@
 
     move-result-object v2
 
-    const/4 v3, 0x0
+    const/4 v3, 0x4
 
-    const/4 v6, 0x4
+    const/4 v6, 0x0
 
-    invoke-virtual {v14, v2, v3, v6}, Ljava/io/FileOutputStream;->write([BII)V
+    invoke-virtual {v14, v2, v6, v3}, Ljava/io/FileOutputStream;->write([BII)V
 
     const/4 v2, 0x4
 
@@ -3048,11 +3048,11 @@
 
     move-result-object v2
 
-    const/4 v3, 0x0
+    const/4 v3, 0x4
 
-    const/4 v6, 0x4
+    const/4 v6, 0x0
 
-    invoke-virtual {v14, v2, v3, v6}, Ljava/io/FileOutputStream;->write([BII)V
+    invoke-virtual {v14, v2, v6, v3}, Ljava/io/FileOutputStream;->write([BII)V
     :try_end_a
     .catch Ljava/io/FileNotFoundException; {:try_start_a .. :try_end_a} :catch_0
     .catch Ljava/io/IOException; {:try_start_a .. :try_end_a} :catch_2
@@ -3089,11 +3089,11 @@
 
     move-result-object v2
 
-    const/4 v3, 0x0
+    const/4 v3, 0x4
 
-    const/4 v6, 0x4
+    const/4 v6, 0x0
 
-    invoke-virtual {v14, v2, v3, v6}, Ljava/io/FileOutputStream;->write([BII)V
+    invoke-virtual {v14, v2, v6, v3}, Ljava/io/FileOutputStream;->write([BII)V
 
     goto/16 :goto_a
 
@@ -3132,11 +3132,11 @@
 
     move-result-object v2
 
-    const/4 v3, 0x0
+    const/4 v3, 0x4
 
-    const/4 v6, 0x4
+    const/4 v6, 0x0
 
-    invoke-virtual {v14, v2, v3, v6}, Ljava/io/FileOutputStream;->write([BII)V
+    invoke-virtual {v14, v2, v6, v3}, Ljava/io/FileOutputStream;->write([BII)V
 
     goto/16 :goto_a
 
@@ -3163,11 +3163,11 @@
 
     move-result-object v2
 
-    const/4 v3, 0x0
+    const/4 v3, 0x4
 
-    const/4 v6, 0x4
+    const/4 v6, 0x0
 
-    invoke-virtual {v14, v2, v3, v6}, Ljava/io/FileOutputStream;->write([BII)V
+    invoke-virtual {v14, v2, v6, v3}, Ljava/io/FileOutputStream;->write([BII)V
 
     const/4 v2, 0x1
 
@@ -3192,33 +3192,11 @@
 
     move-result-object v2
 
-    const/4 v3, 0x0
+    const/4 v3, 0x4
 
-    const/4 v6, 0x4
+    const/4 v6, 0x0
 
-    invoke-virtual {v14, v2, v3, v6}, Ljava/io/FileOutputStream;->write([BII)V
-
-    const/4 v2, 0x4
-
-    invoke-static {v2}, Ljava/nio/ByteBuffer;->allocate(I)Ljava/nio/ByteBuffer;
-
-    move-result-object v2
-
-    const/4 v3, 0x0
-
-    invoke-virtual {v2, v3}, Ljava/nio/ByteBuffer;->putFloat(F)Ljava/nio/ByteBuffer;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/nio/ByteBuffer;->array()[B
-
-    move-result-object v2
-
-    const/4 v3, 0x0
-
-    const/4 v6, 0x4
-
-    invoke-virtual {v14, v2, v3, v6}, Ljava/io/FileOutputStream;->write([BII)V
+    invoke-virtual {v14, v2, v6, v3}, Ljava/io/FileOutputStream;->write([BII)V
 
     const/4 v2, 0x4
 
@@ -3236,11 +3214,33 @@
 
     move-result-object v2
 
+    const/4 v3, 0x4
+
+    const/4 v6, 0x0
+
+    invoke-virtual {v14, v2, v6, v3}, Ljava/io/FileOutputStream;->write([BII)V
+
+    const/4 v2, 0x4
+
+    invoke-static {v2}, Ljava/nio/ByteBuffer;->allocate(I)Ljava/nio/ByteBuffer;
+
+    move-result-object v2
+
     const/4 v3, 0x0
 
-    const/4 v6, 0x4
+    invoke-virtual {v2, v3}, Ljava/nio/ByteBuffer;->putFloat(F)Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v14, v2, v3, v6}, Ljava/io/FileOutputStream;->write([BII)V
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/nio/ByteBuffer;->array()[B
+
+    move-result-object v2
+
+    const/4 v3, 0x4
+
+    const/4 v6, 0x0
+
+    invoke-virtual {v14, v2, v6, v3}, Ljava/io/FileOutputStream;->write([BII)V
 
     :goto_10
     add-int/lit8 v18, v18, 0x1
@@ -3303,11 +3303,11 @@
 
     move-result-object v2
 
-    const/4 v3, 0x0
+    const/4 v3, 0x4
 
-    const/4 v6, 0x4
+    const/4 v6, 0x0
 
-    invoke-virtual {v14, v2, v3, v6}, Ljava/io/FileOutputStream;->write([BII)V
+    invoke-virtual {v14, v2, v6, v3}, Ljava/io/FileOutputStream;->write([BII)V
 
     const/4 v2, 0x4
 
@@ -3327,11 +3327,11 @@
 
     move-result-object v2
 
-    const/4 v3, 0x0
+    const/4 v3, 0x4
 
-    const/4 v6, 0x4
+    const/4 v6, 0x0
 
-    invoke-virtual {v14, v2, v3, v6}, Ljava/io/FileOutputStream;->write([BII)V
+    invoke-virtual {v14, v2, v6, v3}, Ljava/io/FileOutputStream;->write([BII)V
 
     const/4 v2, 0x4
 
@@ -3351,11 +3351,11 @@
 
     move-result-object v2
 
-    const/4 v3, 0x0
+    const/4 v3, 0x4
 
-    const/4 v6, 0x4
+    const/4 v6, 0x0
 
-    invoke-virtual {v14, v2, v3, v6}, Ljava/io/FileOutputStream;->write([BII)V
+    invoke-virtual {v14, v2, v6, v3}, Ljava/io/FileOutputStream;->write([BII)V
 
     goto :goto_10
 
@@ -3492,17 +3492,17 @@
 
     new-array v3, v3, [Ljava/lang/Object;
 
-    const-string/jumbo v6, "VirtualTour_%03d"
+    const/4 v6, 0x0
 
-    const/4 v7, 0x0
+    const-string/jumbo v7, "VirtualTour_%03d"
 
     invoke-static/range {v17 .. v17}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v8
 
-    aput-object v8, v3, v7
+    aput-object v8, v3, v6
 
-    invoke-static {v2, v6, v3}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v2, v7, v3}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v2
 

@@ -653,7 +653,7 @@
 .end method
 
 .method private registerServiceLocked(Landroid/content/ComponentName;IZ)V
-    .locals 16
+    .locals 17
 
     move-object/from16 v0, p0
 
@@ -784,22 +784,22 @@
 
     move-result v7
 
-    add-int/lit8 v11, v7, -0x1
+    add-int/lit8 v12, v7, -0x1
 
     :goto_0
-    if-ltz v11, :cond_3
+    if-ltz v12, :cond_3
 
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/notification/ManagedServices;->mServices:Ljava/util/ArrayList;
 
-    invoke-virtual {v2, v11}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v2, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v12
+    move-result-object v13
 
-    check-cast v12, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;
+    check-cast v13, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;
 
-    iget-object v2, v12, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->component:Landroid/content/ComponentName;
+    iget-object v2, v13, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->component:Landroid/content/ComponentName;
 
     move-object/from16 v0, p1
 
@@ -809,7 +809,7 @@
 
     if-eqz v2, :cond_2
 
-    iget v2, v12, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->userid:I
+    iget v2, v13, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->userid:I
 
     move/from16 v0, p2
 
@@ -849,7 +849,7 @@
 
     move-result-object v4
 
-    iget-object v5, v12, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->service:Landroid/os/IInterface;
+    iget-object v5, v13, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->service:Landroid/os/IInterface;
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
@@ -864,27 +864,62 @@
     :cond_1
     move-object/from16 v0, p0
 
-    invoke-direct {v0, v11}, Lcom/android/server/notification/ManagedServices;->removeServiceLocked(I)Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;
+    invoke-direct {v0, v12}, Lcom/android/server/notification/ManagedServices;->removeServiceLocked(I)Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;
 
-    iget-object v2, v12, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->connection:Landroid/content/ServiceConnection;
+    iget-object v2, v13, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->connection:Landroid/content/ServiceConnection;
 
     if-eqz v2, :cond_2
 
+    :try_start_0
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/notification/ManagedServices;->mContext:Landroid/content/Context;
 
-    iget-object v4, v12, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->connection:Landroid/content/ServiceConnection;
+    iget-object v4, v13, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->connection:Landroid/content/ServiceConnection;
 
     invoke-virtual {v2, v4}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_2
-    add-int/lit8 v11, v11, -0x1
+    :goto_1
+    add-int/lit8 v12, v12, -0x1
 
     goto :goto_0
 
+    :catch_0
+    move-exception v10
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/notification/ManagedServices;->TAG:Ljava/lang/String;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "failed to unbind"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v2, v4, v10}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_1
+
     :cond_3
-    new-instance v13, Landroid/content/Intent;
+    new-instance v14, Landroid/content/Intent;
 
     move-object/from16 v0, p0
 
@@ -892,11 +927,11 @@
 
     iget-object v2, v2, Lcom/android/server/notification/ManagedServices$Config;->serviceInterface:Ljava/lang/String;
 
-    invoke-direct {v13, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v14, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v13, v0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+    invoke-virtual {v14, v0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
     const-string/jumbo v2, "android.intent.extra.client_label"
 
@@ -906,7 +941,7 @@
 
     iget v4, v4, Lcom/android/server/notification/ManagedServices$Config;->clientLabel:I
 
-    invoke-virtual {v13, v2, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+    invoke-virtual {v14, v2, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
     move-object/from16 v0, p0
 
@@ -924,19 +959,21 @@
 
     const/4 v5, 0x0
 
-    const/4 v15, 0x0
+    const/16 v16, 0x0
 
-    invoke-static {v2, v5, v4, v15}, Landroid/app/PendingIntent;->getActivity(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
+    move/from16 v0, v16
 
-    move-result-object v14
+    invoke-static {v2, v5, v4, v0}, Landroid/app/PendingIntent;->getActivity(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
+
+    move-result-object v15
 
     const-string/jumbo v2, "android.intent.extra.client_intent"
 
-    invoke-virtual {v13, v2, v14}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
+    invoke-virtual {v14, v2, v15}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
     const/4 v8, 0x0
 
-    :try_start_0
+    :try_start_1
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/notification/ManagedServices;->mContext:Landroid/content/Context;
@@ -952,18 +989,18 @@
     const/4 v5, 0x0
 
     invoke-virtual {v2, v4, v5}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
+    :try_end_1
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_2
 
     move-result-object v8
 
-    :goto_1
+    :goto_2
     if-eqz v8, :cond_4
 
     iget v6, v8, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
 
-    :goto_2
-    :try_start_1
+    :goto_3
+    :try_start_2
     move-object/from16 v0, p0
 
     iget-boolean v2, v0, Lcom/android/server/notification/ManagedServices;->DEBUG:Z
@@ -982,7 +1019,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v4, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
@@ -1014,7 +1051,7 @@
 
     const v5, 0x5000001
 
-    invoke-virtual {v2, v13, v1, v5, v4}, Landroid/content/Context;->bindServiceAsUser(Landroid/content/Intent;Landroid/content/ServiceConnection;ILandroid/os/UserHandle;)Z
+    invoke-virtual {v2, v14, v1, v5, v4}, Landroid/content/Context;->bindServiceAsUser(Landroid/content/Intent;Landroid/content/ServiceConnection;ILandroid/os/UserHandle;)Z
 
     move-result v2
 
@@ -1054,7 +1091,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v4, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
@@ -1063,18 +1100,18 @@
     move-result-object v4
 
     invoke-static {v2, v4}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_1
-    .catch Ljava/lang/SecurityException; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_2
+    .catch Ljava/lang/SecurityException; {:try_start_2 .. :try_end_2} :catch_1
 
     return-void
 
     :cond_4
     const/4 v6, 0x1
 
-    goto :goto_2
+    goto :goto_3
 
-    :catch_0
-    move-exception v10
+    :catch_1
+    move-exception v11
 
     move-object/from16 v0, p0
 
@@ -1104,7 +1141,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v4, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
@@ -1112,17 +1149,17 @@
 
     move-result-object v4
 
-    invoke-static {v2, v4, v10}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v2, v4, v11}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     return-void
 
     :cond_5
     return-void
 
-    :catch_1
+    :catch_2
     move-exception v9
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 .end method
 
 .method private removeServiceImpl(Landroid/os/IInterface;I)Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;

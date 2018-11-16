@@ -450,6 +450,14 @@
     .end annotation
 .end method
 
+.method public abstract getINAInfo()[Ljava/lang/String;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract getInterfaceConfig(Ljava/lang/String;)Landroid/net/InterfaceConfiguration;
     .annotation system Ldalvik/annotation/Throws;
         value = {
